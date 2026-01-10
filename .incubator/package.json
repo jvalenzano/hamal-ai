@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@sequa-ai/sequa-mcp": "^1.1.2"
+  }
+}

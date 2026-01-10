@@ -1,0 +1,18 @@
+project: echo
+version: 1.0
+agents:
+  - name: researcher
+    role: Market Analyst
+    model: claude-3-5-sonnet
+  - name: ideator
+    role: Product Visionary
+    model: gpt-4o
+  - name: skeptic
+    role: Risk Manager
+    model: claude-3-opus
+  - name: builder
+    role: Systems Architect
+    model: claude-3-5-sonnet
+  - name: storyteller
+    role: Brand Voice
+    model: gpt-4o

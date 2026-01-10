@@ -1,0 +1,24 @@
+name: "LLM Council"
+description: "A multi-model critique engine that acts as a Board of Directors."
+version: "1.0.0"
+
+inputs:
+  topic:
+    type: string
+    description: "The subject or file to critique (e.g., ADR, Spec)."
+  context:
+    type: string
+    description: "Additional context or constraints."
+
+outputs:
+  critique:
+    type: markdown
+    description: "A synthesized report including rankings and identified risks."
+
+models:
+  - role: "Skeptic"
+    model: "gpt-4o"
+  - role: "Architect"
+    model: "claude-3-5-sonnet"
+  - role: "Strategist"
+    model: "gemini-1.5-pro"
