@@ -26,4 +26,12 @@ Echo serves as the primary test case for the Hamal framework, proving that the s
 ### Project Status: Active Development 🚧
 We are currently **building with the Hamal methodology** and using Echo as the flagship case study. The framework, tools, and lessons learned will be open-sourced as we validate the approach.
 
+### Project Documentation
+
+**New here?** Start with these key documents:
+- **[NORTH_STAR.md](./NORTH_STAR.md)** - Complete project vision, structure, and how to resume work
+- **[_FOCUS.md](./_FOCUS.md)** - Current sprint objectives and immediate next steps
+- **[HAMAL_FRAMEWORK.md](./HAMAL_FRAMEWORK.md)** - The validation methodology itself
+
 *Created by Aries Digital | January 2026*
+
