@@ -1,4 +1,3 @@
-import React from 'react';
 import ValidationDashboard from './ValidationDashboard';
 
 function App() {
