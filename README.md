@@ -29,6 +29,7 @@ We are currently **building with the Hamal methodology** and using Echo as the f
 ### Project Documentation
 
 **New here?** Start with these key documents:
+- ⚠️ **[KEEP_IT_SIMPLE.md](./KEEP_IT_SIMPLE.md)** - Read this first! Development manifesto for POC mindset
 - **[NORTH_STAR.md](./NORTH_STAR.md)** - Complete project vision, structure, and how to resume work
 - **[_FOCUS.md](./_FOCUS.md)** - Current sprint objectives and immediate next steps
 - **[HAMAL_FRAMEWORK.md](./HAMAL_FRAMEWORK.md)** - The validation methodology itself
