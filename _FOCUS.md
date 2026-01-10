@@ -1,24 +1,22 @@
 # 🎯 CURRENT FOCUS
 
-> **Objective:** Resume Echo/Hamal deployment to Render.com
-> **Status:** Restructuring Complete - Preparing for Deployment
+> **Objective:** Consolidate Project Structure & Begin Echo Implementation
+> **Status:** Cleanup & Preparation
 
 ## 🧠 Active Context (The "Brain")
-*   **Repo:** Local Git not initialized yet.
-*   **Deployment:** `render.yaml` exists in `hamal-ai/`.
-*   **Stack:** FastAPI + React + Render (Backend) + Vercel (Frontend).
+*   **Repo:** Git initialized in root.
+*   **Deployment:** Live at https://hamal-api.onrender.com
+*   **Structure:** Migrating from nested `hamal-ai/` to root-level `backend`/`frontend`.
+*   **Goal:** Streamline workspace to single source of truth.
 
 ## 🛠 Active Work (The "Body")
-*   **Phase:** Workspace Verification & Git Initialization.
+*   **Phase:** Structural Refactoring.
 
 ## 📋 Immediate Next Steps
-1.  [x] **Agent:** Initialize Git (`git init`).
-2.  [x] **Agent:** Create/Update `.gitignore`.
-3.  [x] **Agent:** Stage and Commit all files (`Hamal Structure Baseline`).
-4.  [x] **User:** Provide GitHub Repository URL.
-5.  [x] **Agent:** Push code (Done - Forced Update).
-6.  [ ] **User:** **DEPLOYMENT ACTION REQUIRED** - Log in to Render.com and trigger deployment for `hamal-ai` (or `hamal-api`).
-    *   Since this is a fresh push, you may need to manually trigger "Manual Deploy" -> "Clear Build Cache & Deploy" if the auto-deploy doesn't catch it immediately, or if the service was previously failing.
+1.  [ ] **Agent:** Remove redundant `hamal-ai` folder (Pending confirmation).
+2.  [ ] **Agent:** Update `render.yaml` to point to root `backend`.
+3.  [ ] **Agent:** Verify local dev server starts from root.
+4.  [ ] **User:** Deployment Triggered w/ new structure.
 
 ---
 *Update this file whenever the "Main Quest" changes.*
