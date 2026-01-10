@@ -1,18 +1,22 @@
+---
+trigger: always_on
+---
+
 # Hamal Project Context
 
-> **CRITICAL:** When resuming work on this project, ALWAYS read `NORTH_STAR.md` first to ground yourself in the current strategy.
-
 ## Core Principles
-1.  **Hamal is the Product:** Our goal is to build the "Solopreneur Idea Factory" framework/software.
-2.  **Echo is the Test Case:** "Project Echo" is simply the first idea we are running through the factory to prove the machinery works. Do not get distracted by building Echo features unless they serve the purpose of validating Hamal.
-3.  **Validation First:** We do not build software until we have rigorous evidence (Research -> Validation -> Architecture).
+* Hamal is THE PRODUCT - a framework for validating ideas
+* Echo is A TEST CASE - the first idea being validated with Hamal
+* All work should be reusable for future ideas beyond Echo
+* Focus on building validation workflows, not specific product features
 
 ## Navigation
-*   **Vision & Strategy:** [NORTH_STAR.md](/Users/jvalenzano/Projects/HAMAL/NORTH_STAR.md)
-*   **Current Objectives:** [_FOCUS.md](/Users/jvalenzano/Projects/HAMAL/_FOCUS.md)
-*   **Methodology:** [HAMAL_FRAMEWORK.md](/Users/jvalenzano/Projects/HAMAL/hamal-framework/HAMAL_FRAMEWORK.md)
+* **Mission & Strategy:** See `/NORTH_STAR.md` for complete project vision
+* **Current Work:** See `/_FOCUS.md` for active tasks and immediate next steps
+* **Framework Docs:** See `/hamal-framework/HAMAL_FRAMEWORK.md` for methodology details
 
-## Workflow
-*   Check `_FOCUS.md` to see active tasks.
-*   If confused about the big picture, check `NORTH_STAR.md`.
-*   If executing a phase, follow `HAMAL_FRAMEWORK.md`.
+## Agent Behavior
+* Always check NORTH_STAR.md when resuming work after breaks
+* Reference NORTH_STAR.md when context seems unclear
+* Update _FOCUS.md as phases complete
+* Keep Echo work in /ventures/echo/ - don't mix with Hamal framework
