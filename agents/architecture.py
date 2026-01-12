@@ -30,8 +30,15 @@ logger = logging.getLogger(__name__)
 
 # claude = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
-# Load embedding model (for similarity search)
-embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
+# Global lazy loader
+_embedding_model = None
+
+def get_embedding_model():
+    global _embedding_model
+    if _embedding_model is None:
+        logger.info("Loading embedding model (lazy)...")
+        _embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
+    return _embedding_model
 
 
 # ... (existing imports)
@@ -63,15 +70,16 @@ def find_similar_projects(problem_md: str, project_history: list) -> list:
     
     Returns top 3 most similar projects.
     """
+    model = get_embedding_model()
     
     # Extract problem description
-    problem_embedding = embedding_model.encode(problem_md)
+    problem_embedding = model.encode(problem_md)
     
     # Compute similarity scores
     similarities = []
     for project in project_history:
         project_text = f"{project['problem']} {' '.join(project.get('stack', []))}"
-        project_embedding = embedding_model.encode(project_text)
+        project_embedding = model.encode(project_text)
         
         # Cosine similarity
         similarity = np.dot(problem_embedding, project_embedding) / (
