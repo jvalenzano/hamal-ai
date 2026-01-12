@@ -28,12 +28,12 @@ const HamalApp = () => {
 
     return (
         <div className="min-h-screen relative transition-colors duration-500 selection:bg-brand-orange/30 dark:text-slate-100 text-slate-900 bg-slate-50 dark:bg-slate-950">
-            {/* The Neural Constellation System */}
-            <div className="fixed inset-0 pointer-events-none z-0">
+            {/* The Neural Constellation System - Interactive Background (z-0) */}
+            <div className="fixed inset-0 z-0">
                 <ParticlesBackground />
             </div>
 
-            {/* Navigation / Header - PERSISTENT DARK MODE */}
+            {/* Navigation / Header - PERSISTENT DARK MODE - (z-50) */}
             <nav className="border-b border-white/10 sticky top-0 z-50 bg-slate-900 transition-colors duration-500 backdrop-blur-md supports-[backdrop-filter]:bg-slate-900/90">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-24">
@@ -128,7 +128,7 @@ const HamalApp = () => {
                     </div>
                 </div>
             </nav>
-            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
                 {!pipelineState ? (
                     <div className="space-y-16 animate-fade-in-up">
                         {/* Branding Hero Section */}

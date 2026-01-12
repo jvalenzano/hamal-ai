@@ -23,7 +23,7 @@ const ParticlesBackground = () => {
             },
             fpsLimit: 120,
             interactivity: {
-                detectsOn: "window", // React to mouse even when over UI elements
+                detectsOn: "canvas", // Only react when mouse is directly over the background
                 events: {
                     onClick: {
                         enable: true,
