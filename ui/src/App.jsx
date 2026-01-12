@@ -37,7 +37,7 @@ const HamalApp = () => {
                             onClick={resetPipeline}
                         >
                             <img
-                                src="/logo.png"
+                                src={darkMode ? "/logo-dark.png" : "/logo-light.png"}
                                 alt="Hamal Logo"
                                 className="h-20 w-20 transition-transform transform group-hover:scale-110 drop-shadow-md dark:drop-shadow-neon-orange"
                             />
