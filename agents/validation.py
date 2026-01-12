@@ -43,7 +43,7 @@ def score_feasibility(problem_md: str, research_md: str) -> dict:
     Returns dict with scores + reasoning.
     """
     
-    system_prompt = """You are a federal project feasibility analyst for TechTrend.
+    system_prompt = """You are a federal project feasibility analyst.
 
 Score this project on 5 dimensions (0-10 each):
 

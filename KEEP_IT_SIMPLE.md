@@ -38,7 +38,7 @@ Our goal is to **validate that agent swarms save time**, not build enterprise-gr
 **Paste this at the start of every working session:**
 
 ```
-This is a proof-of-concept to validate that agent swarms save time on TechTrend 
+This is a proof-of-concept to validate that agent swarms save time on Project 
 Design phases. Our goal is to test agent prompts, not build production 
 infrastructure. Use single-file Python scripts, hardcoded values, JSON files 
 for storage, and print() for debugging. No databases, no auth, no tests, no 

@@ -1,4 +1,4 @@
-# Hamal: AI-Powered Validation Framework for TechTrend
+# Hamal: AI-Powered Validation Framework
 
 **Version:** 0.1.0 (MVP)  
 **Status:** Proof-of-Concept  
@@ -8,7 +8,7 @@
 
 ## What is Hamal?
 
-Hamal transforms rough agency requests into validated project specifications in 15-20 minutes. When TechTrend receives an opportunity (e.g., "Forest Service needs post-fire AI"), Hamal:
+Hamal transforms rough agency requests into validated project specifications in 15-20 minutes. When an opportunity is received (e.g., "Forest Service needs post-fire AI"), Hamal:
 
 1. **Discovery Agent:** Validates the core problem (5 Whys, stakeholder mapping)
 2. **Research Agent:** Finds similar government projects, competitors, failures
@@ -104,7 +104,7 @@ DEFAULT_MODEL=gpt-4o
 
 ⚠️ **READ FIRST:** [KEEP_IT_SIMPLE.md](KEEP_IT_SIMPLE.md)
 
-This is a POC to validate that agent swarms save time on TechTrend Design phases. Our goal is to test agent prompts, not build production infrastructure.
+This is a POC to validate that agent swarms save time on Design phases. Our goal is to test agent prompts, not build production infrastructure.
 
 **Core principles:**
 - Use single-file Python scripts, hardcoded values, JSON files for storage
@@ -148,7 +148,7 @@ Automated tests run on every push and pull request via GitHub Actions.
 **MVP is successful if:**
 - [ ] Saves 5+ hours per Design phase (measurable via time tracking)
 - [ ] Produces 3+ insights per project that AI Lead wouldn't find manually
-- [ ] Runs on 3 different TechTrend projects (RANGER, TrailWatch, 1 new)
+- [ ] Runs on 3 different projects (RANGER, TrailWatch, 1 new)
 - [ ] A2UI demonstrates real-time agent progress (not just loading spinner)
 
 ***
@@ -163,7 +163,7 @@ Automated tests run on every push and pull request via GitHub Actions.
 
 ## Contributing
 
-This is an internal TechTrend tool (for now). If you're a Builder on the team:
+This is an internal tool (for now). If you're a contributor:
 
 1. Read `KEEP_IT_SIMPLE.md` first
 2. Each agent is a self-contained Python file
@@ -174,8 +174,8 @@ This is an internal TechTrend tool (for now). If you're a Builder on the team:
 
 ## License
 
-Internal TechTrend project. Not open source (yet).
+Internal project. Not open source (yet).
 
 ***
 
-**Contact:** AI Lead, TechTrend Inc.
+**Contact:** AI Lead

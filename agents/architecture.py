@@ -59,7 +59,7 @@ def load_project_history() -> list:
 
 def find_similar_projects(problem_md: str, project_history: list) -> list:
     """
-    Find similar TechTrend projects using semantic similarity.
+    Find similar historical projects using semantic similarity.
     
     Returns top 3 most similar projects.
     """
@@ -99,9 +99,9 @@ def recommend_stack(problem_md: str, validation_md: str, similar_projects: list)
     Returns dict with stack recommendation + reasoning.
     """
     
-    system_prompt = """You are TechTrend's technical architect.
+    system_prompt = """You are a technical architect.
 
-**TechTrend's Preferred Stack:**
+**Preferred Tech Stack:**
 - **Backend:** Python (FastAPI)
 - **Database:** AlloyDB (PostgreSQL-compatible, GCP-native)
 - **AI/ML:** Vertex AI (Gemini, PaLM, custom models)
@@ -176,7 +176,7 @@ def recommend_stack(problem_md: str, validation_md: str, similar_projects: list)
 ## Validation:
 {validation_md}
 
-## Similar TechTrend Projects:
+## Similar Projects:
 {similar_projects_text}
 
 Return JSON with stack recommendation + reusable components."""
@@ -201,7 +201,7 @@ def estimate_costs(stack: dict, validation_scores: dict) -> dict:
     Returns dict with cost breakdown.
     """
     
-    system_prompt = """You are estimating project costs for TechTrend.
+    system_prompt = """You are estimating project costs.
 
 **Assumptions:**
 - **Developer rate:** $150/hour (blended)
@@ -484,7 +484,7 @@ def run_architecture(project_dir: str) -> str:
     
     project_name = os.path.basename(project_dir)
     
-    logger.info("📚 Architecture Agent: Loading TechTrend project history...")
+    logger.info("📚 Architecture Agent: Loading project history...")
     project_history = load_project_history()
     
     logger.info("🔍 Architecture Agent: Finding similar projects...")

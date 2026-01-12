@@ -1,14 +1,14 @@
-# TechTrend Context for Hamal Agents
+# Company Context for Hamal Agents
 
-**Purpose:** This file contains TechTrend-specific context that agents should use when validating opportunities.
+**Purpose:** This file contains company-specific context that agents should use when validating opportunities.
 
 ***
 
 ## Company Background
 
-**TechTrend, Inc.** is a Google Cloud Partner consultancy specializing in AI solutions for government agencies. We operate the **AI Factory** model:
+**[Company Name]** is a technology solutions provider specializing in AI solutions for government agencies. We operate the **AI Factory** model:
 
-- **Design Phase:** $5K, 2-3 weeks (research, scope, architecture, fixed-price proposal)
+- **Design Phase:** Fixed price, 2-3 weeks (research, scope, architecture, proposal)
 - **Build Phase:** Fixed price, 6-16 weeks (rapid prototyping, MVP-first)
 - **Deploy Phase:** Customer environment (FedRAMP, on-prem, hybrid)
 - **Transfer Phase:** Full code/docs/knowledge transfer (zero vendor lock-in)
@@ -35,26 +35,26 @@
 
 ***
 
-## TechTrend's Preferred Tech Stack
+## Preferred Tech Stack
 
 **Backend:**
 - **Language:** Python (FastAPI framework)
-- **Database:** AlloyDB (PostgreSQL-compatible, GCP-native)
-- **AI/ML:** Vertex AI (Gemini, PaLM, custom models)
-- **Storage:** Cloud Storage (files, photos, documents)
+- **Database:** PostgreSQL-compatible (Cloud SQL, AlloyDB)
+- **AI/ML:** LiteLLM (supporting Anthropic, OpenAI, Vertex AI)
+- **Storage:** Object Storage (S3, GCS)
 
 **Frontend:**
 - **Framework:** React (PWA for offline capability)
 - **Styling:** Tailwind CSS
-- **Hosting:** Cloud Run or Firebase Hosting
+- **Hosting:** Containerized (Cloud Run, App Runner)
 
 **Deployment:**
-- **Platform:** Google Cloud Platform (primary)
-- **Containers:** Docker + Cloud Run
-- **Compliance:** FedRAMP Moderate via Assured Workloads
-- **CI/CD:** Cloud Build (though we prefer manual for MVP)
+- **Platform:** Cloud Agnostic (AWS, Azure, GCP supported)
+- **Containers:** Docker + Orchestrator
+- **Compliance:** NIST 800-53, FedRAMP Moderate capable
+- **CI/CD:** GitHub Actions / GitLab CI
 
-**Why GCP:** TechTrend is a Google Cloud Partner, team is trained on GCP, customer agencies often use GCP
+**Why Generic:** We adapt to the customer's cloud environment while maintaining a consistent application architecture.
 
 ***
 
@@ -97,28 +97,28 @@
 
 ## Competitors (Awareness)
 
-**Large integrators:**
-- Palantir (Foundry platform - $500K+/year, vendor lock-in)
-- Deloitte, Accenture (traditional consulting, multi-year timelines)
-- Esri (GIS-focused, strong in Forest Service but weak AI)
+**Large Integrators:**
+- Palantir (Foundry platform - High cost, vendor lock-in)
+- Deloitte, Accenture (Traditional consulting)
+- Esri (GIS-focused)
 
-**TechTrend advantage:**
-- Fixed-price (no hourly billing)
-- Weeks not years (AI-accelerated delivery)
-- No vendor lock-in (you own everything)
-- GCP-native (not multi-cloud complexity)
+**Our Advantage:**
+- Fixed-price delivery
+- Weeks not years
+- No vendor lock-in (customer owns code)
+- Modern, open-source stack
 
 ***
 
 ## Use This Context When:
 
 1. **Discovery Agent:** Understand agency mission, common pain points
-2. **Research Agent:** Search for similar Forest Service projects, government precedents
-3. **Validation Agent:** Apply TechTrend's feasibility rubric (technical, compliance, timeline, budget)
-4. **Similarity Agent:** Match against RANGER, TrailWatch patterns
-5. **Architecture Agent:** Default to TechTrend stack (FastAPI + React + Vertex AI)
+2. **Research Agent:** Search for similar government projects
+3. **Validation Agent:** Apply feasibility rubric (technical, compliance, timeline, budget)
+4. **Similarity Agent:** Match against historical patterns
+5. **Architecture Agent:** Default to preferred stack (FastAPI + React)
 
 ***
 
-**Last Updated:** January 10, 2026  
-**Maintained By:** AI Lead, TechTrend Inc.
+**Last Updated:** January 11, 2026
+**Maintained By:** AI Lead

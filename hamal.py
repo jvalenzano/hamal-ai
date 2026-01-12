@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Hamal - AI-Powered Validation Framework for TechTrend
+Hamal - AI-Powered Validation Framework
 
 Main orchestrator: Runs agents in sequence, tracks state, generates reports.
 """
