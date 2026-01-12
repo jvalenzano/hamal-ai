@@ -66,7 +66,8 @@ def retry_with_backoff(max_attempts=3, base_delay=1.0, max_delay=10.0):
                     error_str = str(e).lower()
                     is_retryable = any(keyword in error_str for keyword in [
                         'rate limit', 'timeout', 'connection', 'temporary', 
-                        'service unavailable', '429', '503', '504'
+                        'service unavailable', '429', '503', '504',
+                        'overloaded', 'internal server error'
                     ])
                     
                     # Check for fatal errors

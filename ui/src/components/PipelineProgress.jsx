@@ -150,7 +150,12 @@ const PipelineProgress = () => {
 
             {/* Main Content Area */}
             <div className="grid grid-cols-1 gap-8">
-                {/* Artifact Viewer */}
+                {/* Terminal (Moved Up) */}
+                <div className="w-full">
+                    <ActivityLog logs={logs} />
+                </div>
+
+                {/* Artifact Viewer (Moved Down) */}
                 <div className="min-h-[400px]">
                     {selectedAgent ? (
                         <div className="space-y-4 animate-fade-in-up">
@@ -202,20 +207,10 @@ const PipelineProgress = () => {
                             <span className="text-6xl opacity-20">⚡️</span>
                             <div className="text-center">
                                 <p className="text-lg font-medium">Pipeline Active</p>
-                                <p className="text-sm opacity-70">Monitor the terminal below or select a completed stage above.</p>
+                                <p className="text-sm opacity-70">Monitor the terminal above or select a completed stage.</p>
                             </div>
                         </div>
                     )}
-                </div>
-
-                {/* Bottom Terminal */}
-                <div className="w-full">
-                    <div className="flex items-center justify-between mb-2 px-1">
-                        <h3 className="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider font-mono">
-                            >_ System Terminal
-                        </h3>
-                    </div>
-                    <ActivityLog logs={logs} />
                 </div>
             </div>
 

@@ -1,6 +1,6 @@
 # 🎯 Current Focus - Hamal Project
 
-**Last Updated**: January 11, 2026
+**Last Updated**: January 12, 2026
 
 ---
 
@@ -16,47 +16,23 @@ The Hamal agent pipeline is **fully functional** and successfully validated with
 
 ## 📊 What We've Accomplished
 
-### Phase 1: Agent Pipeline (COMPLETE ✅)
-- ✅ **Discovery Agent** - Problem interrogation via 5 Whys + context gathering
-- ✅ **Research Agent** - Government precedents, competitors, failure analysis
-- ✅ **Validation Agent** - Feasibility scoring + risk assessment
-- ✅ **Architecture Agent** - Stack recommendations, cost estimates, timeline
-- ✅ **Orchestrator** - `hamal.py` CLI for running full pipeline
+### Phase 1: MVP Core & Deployment (COMPLETE ✅)
+- ✅ **Agent Pipeline** - All 4 agents + Orchestrator functional
+- ✅ **LiteLLM Integration** - Multi-provider support
+- ✅ **Deployment** - Live on Render (Dockerized w/ Caching)
+- ✅ **Documentation** - Architecture, Deployment, and GCP Migration guides
 
-### Infrastructure & Quality (COMPLETE ✅)
-- ✅ **LiteLLM Integration** - Multi-provider support, future-proof API layer
-- ✅ **Code Quality** - DRY refactoring, centralized config, helper functions
-- ✅ **Model Updates** - Current Claude 4.x model names (`claude-sonnet-4-20250514`)
-- ✅ **Bug Fixes** - Import errors, circular dependencies, CLI argument parsing
+### Phase 2: Productization & DX (IN PROGRESS 🚧)
+**Product Features**
+- [x] **Simple Auth** - Add Basic Auth to `hamal.py` to secure the public endpoint.
+- [x] **UX Polish** - Swapped Terminal/Output layout, fixed background animation, cleaned up UI text.
+- [x] **Resilience** - Added retry logic for Architecture Agent "Overloaded" errors.
+- [ ] **Database** - Migrate from `state.json` to AlloyDB/Postgres for persistence.
 
-### Validation Test Case (COMPLETE ✅)
-- ✅ **Peace Corps Charter** - Full pipeline execution successful
-- ✅ **Outputs Generated**:
-  - `problem.md` - Validated problem statement (Medium-High severity)
-  - `research.md` - No direct precedents, commercial vendors overpriced
-  - `validation.md` - CONDITIONAL GO (25/50 score)
-  - `architecture.md` - $101K budget, 12 weeks, detailed tech stack
-
----
-
-## 🚀 What's Next
-
-### Immediate (This Session)
-- [ ] Stage and commit all changes
-- [ ] Review commit message strategy
-- [ ] Decide: Push to GitHub or continue local development?
-
-### Short-Term (Next 1-2 Sessions)
-- [ ] **Test Orchestrator** - Run `python hamal.py run` on Peace Corps charter v2
-- [ ] **Documentation** - Update README with LiteLLM setup instructions
-- [ ] **Error Handling** - Add retry logic for transient API errors
-- [ ] **Suppress Pydantic Warnings** - Clean up console output
-
-### Medium-Term (Next Week)
-- [ ] **UI Integration** - Connect frontend to agent pipeline
-- [ ] **State Management** - Improve `state.json` tracking and resume capability
-- [ ] **Testing** - Add unit tests for `utils.py` and agent functions
-- [ ] **Deployment** - Prepare for Render deployment
+**Developer Experience (DX)**
+- [ ] **CI/CD** - GitHub Actions for automated testing/deploy.
+- [ ] **Local Docker** - `docker-compose up` to replicate Render locally (stop "works on my machine").
+- [ ] **Testing** - Unit tests for Agent logic to prevent regressions during refactors.
 
 ### Long-Term (Future Sprints)
 - [ ] **Multi-Charter Support** - Batch processing for multiple charters

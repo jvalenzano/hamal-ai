@@ -167,6 +167,8 @@ Automated tests run on every push and pull request via GitHub Actions.
 
 - 📖 [Setup Guide](docs/SETUP.md) - LiteLLM provider configuration
 - 🚀 [Usage Guide](docs/USAGE.md) - CLI examples and workflows
+- 💡 [Why Hamal?](docs/WHY_HAMAL.md) - The vision and problem statement
+- 🤖 [Meet the Team](docs/AGENT_ROSTER.md) - Agent personas and battle cards
 - 🔧 [Troubleshooting](docs/TROUBLESHOOTING.md) - Common errors and solutions
 
 ***

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 
-const ParticlesBackground = () => {
+const ParticlesBackground = React.memo(() => {
     const [init, setInit] = useState(false);
 
     // Initialize the tsParticles engine
@@ -31,16 +31,16 @@ const ParticlesBackground = () => {
                     },
                     onHover: {
                         enable: true,
-                        mode: "grab", // Neural connection effect
+                        mode: "bubble", // Changed to bubble for smoother interaction
                     },
                 },
                 modes: {
-                    grab: {
+                    bubble: {
                         distance: 200,
-                        links: {
-                            opacity: 0.5,
-                            color: "#EA580C", // Interaction highlights in Brand Amber
-                        }
+                        size: 6,
+                        duration: 2,
+                        opacity: 0.8,
+                        speed: 3
                     },
                     push: {
                         quantity: 4,
@@ -62,10 +62,10 @@ const ParticlesBackground = () => {
                     direction: "none",
                     enable: true,
                     outModes: {
-                        default: "bounce",
+                        default: "out", // Changed from bounce to out for seamless flow
                     },
                     random: true,
-                    speed: 0.8, // Slow, majestic drift
+                    speed: 0.5, // Slowed down slightly
                     straight: false,
                 },
                 number: {
@@ -106,6 +106,6 @@ const ParticlesBackground = () => {
     }
 
     return <></>;
-};
+});
 
 export default ParticlesBackground;

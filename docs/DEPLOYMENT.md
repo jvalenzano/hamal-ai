@@ -49,4 +49,39 @@ To rollback to a previous version:
 1. Go to the Service Dashboard on Render.
 2. Click **History**.
 3. Find the last successful deploy.
-4. Click **Rollback**.
+
+## Security & Authentication (Important)
+⚠️ **Current Status**: This deployment is **PUBLIC**.
+- **API Keys**: keys are stored securely on the backend (Render). They are **NOT** exposed to the frontend/browser.
+- **Access**: Anyone with the URL can trigger the agents.
+- **Cost**: Usage of the agents utilizes *your* API credits (Anthropic/Tavily).
+
+### Recommended Next Steps for Production
+To prevents unauthorized usage:
+1.  **Basic Auth**: Add a simple password protection at the Nginx/FastAPI level.
+
+## Free Tier Limitations (The "Cold Start")
+⚠️ **Note**: This app runs on Render's **Free Tier**.
+-   **Behavior**: The server "spins down" (goes to sleep) after 15 minutes of inactivity.
+
+## Troubleshooting
+
+### 1. Build Failed (Timeout)
+If the build takes >15 minutes, you likely just added a heavy library (torch, pandas). Render's free builders are slow.
+**Fix**: Be patient. Once cached, it's fast.
+
+### 2. Deploy Failed (No Open Ports / Timeout)
+If the build succeeds but the *deploy* fails after 5-10 minutes with "No open ports detected":
+**Cause**: Your app takes too long to start (e.g., downloading AI models at the top of your script).
+**Fix**: Use **Lazy Loading**. Do not initialize heavy models in the global scope. Initialize them inside the function that needs them.
+```python
+# BAD
+model = BigModel() # Downloads 5GB on import
+
+# GOOD
+_model = None
+def get_model():
+    if _model is None:
+        _model = BigModel()
+    return _model
+```
