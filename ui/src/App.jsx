@@ -36,36 +36,42 @@ const HamalApp = () => {
                             className="flex items-center space-x-5 cursor-pointer group"
                             onClick={resetPipeline}
                         >
-                            {/* Logo - Hand-coded Geometric Vector SVG */}
-                            <div className="relative h-14 w-14 transition-transform transform group-hover:scale-105">
+                            {/* Logo - Hand-coded Geometric Vector SVG - SCALED UP & DETAILED */}
+                            <div className="relative h-20 w-20 transition-transform transform group-hover:scale-105">
                                 <svg
                                     viewBox="0 0 100 100"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg"
-                                    className="w-full h-full text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]"
+                                    className="w-full h-full text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]"
                                 >
-                                    {/* Central Star - The "Alpha Arietis" */}
+                                    {/* Central Star - The "Alpha Arietis" (Slightly larger, glowing) */}
                                     <path
-                                        d="M50 20L55 35L70 40L55 45L50 60L45 45L30 40L45 35L50 20Z"
+                                        d="M50 15 L56 32 L74 38 L56 44 L50 62 L44 44 L26 38 L44 32 L50 15 Z"
                                         fill="#EA580C"
                                         stroke="white"
-                                        strokeWidth="2"
+                                        strokeWidth="1.5"
                                         strokeLinejoin="round"
+                                        className="animate-pulse-slow"
                                     />
 
-                                    {/* Geometric Ram Head Construction */}
-                                    {/* Forehead/Nose Bridge */}
+                                    {/* Complex Geometric Ram Construction */}
+                                    {/* Brow / Nose Bridge - Stronger, Angular */}
                                     <path
-                                        d="M40 40 L40 70 L50 80 L60 70 L60 40"
+                                        d="M38 42 L38 65 L50 78 L62 65 L62 42"
                                         stroke="white"
                                         strokeWidth="3"
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                     />
 
+                                    {/* Eyes - Aggressive Slit */}
+                                    <path d="M38 52 L30 48" stroke="white" strokeWidth="3" strokeLinecap="round" />
+                                    <path d="M62 52 L70 48" stroke="white" strokeWidth="3" strokeLinecap="round" />
+
+                                    {/* Powerful Spiral Horns - The "Awesome" Element */}
                                     {/* Left Horn */}
                                     <path
-                                        d="M40 40 C 30 40, 20 30, 20 50 C 20 65, 35 75, 40 70"
+                                        d="M38 42 C 20 42, 10 30, 10 50 C 10 70, 25 80, 35 70 C 40 65, 30 55, 25 60"
                                         stroke="white"
                                         strokeWidth="3"
                                         strokeLinecap="round"
@@ -74,7 +80,7 @@ const HamalApp = () => {
 
                                     {/* Right Horn */}
                                     <path
-                                        d="M60 40 C 70 40, 80 30, 80 50 C 80 65, 65 75, 60 70"
+                                        d="M62 42 C 80 42, 90 30, 90 50 C 90 70, 75 80, 65 70 C 60 65, 70 55, 75 60"
                                         stroke="white"
                                         strokeWidth="3"
                                         strokeLinecap="round"
