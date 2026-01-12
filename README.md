@@ -6,6 +6,14 @@
 
 ***
 
+## 🌟 About the Name
+
+> *"Hamal (Alpha Arietis) is the brightest star in Aries, traditionally known as the Head of the Ram."*
+
+Named after the navigational star that historically marked the vernal equinox, **Hamal** serves as the "brain" of the constellation. Just as the star guides navigators, this framework guides **Company Name** (formerly Aries Digital) through the chaos of early-stage ideas. It provides the intellect, vision, and validation needed to turn raw concepts into executable realities.
+
+***
+
 ## What is Hamal?
 
 Hamal transforms rough agency requests into validated project specifications in 15-20 minutes. When an opportunity is received (e.g., "Forest Service needs post-fire AI"), Hamal:
@@ -134,7 +142,7 @@ Automated tests run on every push and pull request via GitHub Actions.
 
 ## Tech Stack
 
-- **Language:** Python 3.11+
+- **Language:** Python 3.11+ (Python 3.14 not yet supported)
 - **LLM Interface:** LiteLLM (unified API for Anthropic, OpenRouter, Gemini, Vertex AI)
 - **Primary Model:** Claude Sonnet 4 (via Anthropic)
 - **Web Search:** Tavily API

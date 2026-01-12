@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --brand-blue: #0B3D91;
+    --brand-orange: #FF4500;
+}
+
+body {
+    @apply bg-slate-900 text-slate-100 font-sans;
+}
+
+/* Custom Scrollbar for Terminals */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

@@ -70,7 +70,7 @@ The Hamal agent pipeline is **fully functional** and successfully validated with
 
 **Environment**: `root`
 - **Path**: `.` (Repository Root)
-- **Python**: 3.14 (venv activated)
+- **Python**: 3.11 (venv activated)
 - **LLM Provider**: LiteLLM (supports Anthropic, OpenRouter, Vertex, Gemini)
 - **Models**: 
   - Default: `claude-sonnet-4-20250514`
