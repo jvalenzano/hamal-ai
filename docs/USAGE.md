@@ -1,4 +1,4 @@
-# Hamal TechTrend Usage Guide
+# Hamal Usage Guide
 
 CLI examples and common workflows for the Hamal AI validation framework.
 
@@ -172,7 +172,7 @@ python agents/architecture.py outputs/peace-corps-charter/
 **Output:** `outputs/peace-corps-charter/architecture.md`
 
 **Contains:**
-- Recommended tech stack (based on TechTrend defaults)
+- Recommended tech stack (based on system defaults)
 - Cost breakdown (GCP runtime + dev hours)
 - Timeline (6/12/16 weeks)
 - Similar project references

@@ -403,53 +403,56 @@ def serve(host, port):
     @app.post("/api/pipeline/start")
     async def start_pipeline(request: PipelineRequest, background_tasks: BackgroundTasks):
         """Start the validation pipeline in the background"""
-        project_name = request.project_name
-        
-        # If no project name, generate one from timestamp if basic heuristics fail
-        if not project_name:
-            project_name = f"project_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+        try:
+            project_name = request.project_name
+            
+            # If no project name, generate one from timestamp if basic heuristics fail
+            if not project_name:
+                project_name = f"project_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
 
-        output_dir = f"outputs/{project_name}"
-        os.makedirs(output_dir, exist_ok=True)
+            output_dir = f"outputs/{project_name}"
+            os.makedirs(output_dir, exist_ok=True)
 
-        # Save charter
-        charter_path = os.path.join(output_dir, "charter.txt")
-        with open(charter_path, "w") as f:
-            f.write(request.charter_text)
+            # Save charter
+            charter_path = os.path.join(output_dir, "charter.txt")
+            with open(charter_path, "w") as f:
+                f.write(request.charter_text)
 
-        # Initialize state
-        state = {
-            "project_name": project_name,
-            "started_at": datetime.now().isoformat(),
-            "charter_file": charter_path,
-            "status": "running",
-            "agents": {},
-            "errors": [],
-            "warnings": []
-        }
-        save_state(state, output_dir)
+            # Initialize state
+            state = {
+                "project_name": project_name,
+                "started_at": datetime.now().isoformat(),
+                "charter_file": charter_path,
+                "status": "running",
+                "agents": {},
+                "errors": [],
+                "warnings": []
+            }
+            save_state(state, output_dir)
 
-        # Trigger background CLI execution (reuse existing CLI command logic via function call or subprocess)
-        # Using subprocess to separate the worker process from API server for stability
-        cmd = [
-            sys.executable, 
-            os.path.join(os.path.dirname(__file__), "hamal.py"), 
-            "run", 
-            charter_path, 
-            "--project-name", project_name, 
-            "--skip-on-error"
-        ]
-        
-        # Log stdout/stderr to activity.log in detached mode
-        # Since 'run' now also logs to file internally, we might double log if we redirect stdout here, 
-        # BUT 'run' only logs to file *after* it sets up logging. Early startup logs (or crash logs) might be missed.
-        # Let's redirect stdout/stderr to the log file to capture EVERYTHING.
-        log_file = os.path.join(output_dir, "activity.log")
-        with open(log_file, "a") as f:
-            import subprocess
-            subprocess.Popen(cmd, stdout=f, stderr=subprocess.STDOUT)
+            # Trigger background CLI execution (reuse existing CLI command logic via function call or subprocess)
+            # Using subprocess to separate the worker process from API server for stability
+            script_path = os.path.abspath(__file__)
+            cmd = [
+                sys.executable, 
+                script_path, 
+                "run", 
+                charter_path, 
+                "--project-name", project_name, 
+                "--skip-on-error"
+            ]
+            
+            # Log stdout/stderr to activity.log in detached mode
+            log_file = os.path.join(output_dir, "activity.log")
+            with open(log_file, "a") as f:
+                import subprocess
+                subprocess.Popen(cmd, stdout=f, stderr=subprocess.STDOUT)
 
-        return {"status": "started", "project_name": project_name}
+            return {"status": "started", "project_name": project_name}
+        except Exception as e:
+            import traceback
+            traceback.print_exc()
+            return JSONResponse(status_code=500, content={"error": str(e), "traceback": traceback.format_exc()})
 
     @app.get("/api/pipeline/{project_name}/status")
     def get_status(project_name: str):

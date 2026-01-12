@@ -1,0 +1,467 @@
+# Peace Corps Chatbot Demo Charter: "The Second Act"
+
+**Version:** 1.0  
+**Date:** January 11, 2026  
+**Author:** TechTrend Federal  
+**RFI Reference:** PC-25-R-0002  
+
+---
+
+## Executive Summary
+
+| Field | Value |
+|-------|-------|
+| **Goal** | Demonstrate TechTrend's capability to deliver a compliant, intelligent, and safe conversational agent for Peace Corps volunteer recruitment |
+| **Format** | 15-20 minute live demo with single narrative arc |
+| **Audience** | Peace Corps Review Board / Vendor Day Stakeholders |
+| **Key Themes** | Inclusivity, Trust (RAG), Safety (Guardrails), Human Connectivity |
+
+### Demo Thesis
+
+> "An AI assistant that knows what it knows, knows what it doesn't know, and knows when to bring in a human."
+
+---
+
+## 1. Problem Statement
+
+**What is the core issue?**
+
+Peace Corps recruitment staff spend significant time answering repetitive eligibility questions while prospective volunteers—especially non-traditional candidates (older adults, those with medical conditions)—often self-select out due to misconceptions about requirements. The current website provides static FAQ content but lacks conversational guidance that can address nuanced situations and route complex cases to human recruiters.
+
+---
+
+## 2. Target Audience
+
+**Primary Users:**
+- Prospective Peace Corps Volunteers (especially non-traditional candidates)
+- Peace Corps Recruitment Specialists (receiving escalated conversations)
+
+**Demo Stakeholders:**
+- Peace Corps Office of Volunteer Recruitment and Selection (VRS)
+- Peace Corps OCIO / Security reviewers
+- DOI Interior Business Center (contracting authority)
+
+---
+
+## 3. Desired Outcome
+
+**Success Metrics for Demo:**
+
+| Metric | Target | Measurement |
+|--------|--------|-------------|
+| Hallucination Rate | 0% | All policy statements must be verbatim or citation-backed |
+| Safety Compliance | 100% | Medical disclaimer triggers on condition mention |
+| Context Preservation | 100% | Agent view displays accurate conversation summary |
+| Accessibility | WCAG 2.1 AA | Chat widget passes basic accessibility checks |
+| Demo Completion | Full arc | All phases execute without critical failure |
+
+---
+
+## 4. Key Constraints
+
+| Constraint Type | Requirement |
+|-----------------|-------------|
+| **Compliance** | FedRAMP Moderate (platform is FedRAMP High); Section 508/WCAG 2.1 AA |
+| **Timeline** | Vendor Day window: January 7-16, 2026 |
+| **Content** | All chatbot responses grounded in Peace Corps-curated content only |
+| **Safety** | No medical advice; crisis protocols implemented but not demoed |
+
+---
+
+## 5. Character Persona
+
+| Attribute | Value |
+|-----------|-------|
+| **Name** | Sarah |
+| **Age** | 57 |
+| **Background** | Retired English Teacher, 30 years experience |
+| **Location** | Suburban Ohio |
+| **Motivation** | Seeking purpose in retirement; always wanted to serve internationally |
+| **Concerns** | Fears she is "too old" or will be medically disqualified |
+| **Tech Comfort** | Moderate; uses email and Facebook, prefers chat to phone calls |
+
+**Why This Persona:**
+- Represents Peace Corps' "50+" demographic growth opportunity
+- Naturally introduces edge cases (age, medical) without contrivance
+- Aligns with RFI language about "meeting volunteers wherever they prefer"
+- Tests inclusivity messaging—a core Peace Corps value
+
+---
+
+## 6. The Narrative Arc
+
+### Phase 0: First Contact (Bot Self-Identification)
+**Duration:** 30 seconds
+
+**User Action:**  
+Sarah clicks the chat widget on peacecorps.gov after reading an article about older volunteers.
+
+**System Response:**
+> "Hi! I'm the Peace Corps Virtual Assistant. I can answer questions about volunteer programs, eligibility requirements, and the application process. I'm an AI assistant—if you'd like to speak with a recruiter at any point, just let me know. How can I help you today?"
+
+**PWS Alignment:**
+- 3.1.2 User Experience (consistent voice)
+- 3.1.13 Transparency (clearly identifies as AI)
+
+**Technical Notes:**
+- Welcome message is deterministic (not generated)
+- Session initialization logged for analytics
+
+---
+
+### Phase 1: The Myth Buster (RAG & Grounding)
+**Duration:** 3 minutes
+
+**User Action:**
+> "I've been a teacher for 30 years and just retired. I want to serve, but I'm 57. Is there an age limit?"
+
+**System Response:**
+> "Great news—there's no upper age limit for Peace Corps service! The only age requirement is that you must be at least 18 years old and a U.S. citizen.
+>
+> In fact, about 7% of current Volunteers are over 50, and the oldest Peace Corps Volunteer on record was 87 when she completed her service. Many programs specifically value the professional experience that mid-career and retired applicants bring.
+>
+> Would you like to hear about education-focused programs that might be a good fit for your teaching background?"
+
+**PWS Alignment:**
+- 3.1.3 RAG with curated content
+- 3.1.4 Natural Language Processing
+- 3.1.2 User Experience (encouraging tone)
+
+**Technical Showcase:**
+- Vertex AI Search retrieval from `peace_corps_eligibility` data store
+- Response includes verifiable statistics (grounded, not hallucinated)
+- Follow-up question demonstrates conversation continuity
+
+**Success Criteria:**
+- [ ] Age policy is accurate (no upper limit, 18+ minimum)
+- [ ] Statistics cited match official Peace Corps data
+- [ ] Tone is warm and encouraging, not bureaucratic
+
+---
+
+### Phase 2: The Compliance Check (Safety & Medical Guardrails)
+**Duration:** 3 minutes
+
+**User Action:**
+> "That's a relief! But I do have well-controlled Type 2 diabetes. Does that automatically disqualify me?"
+
+**System Response:**
+> "Having a medical condition does not automatically disqualify you from Peace Corps service. All applicants go through an individualized medical clearance process conducted by the Peace Corps Office of Medical Services.
+>
+> The medical team reviews each applicant's specific situation—including the condition, how well it's managed, and the medical resources available at your potential service location.
+>
+> I'm not able to predict the outcome of your specific clearance, but I can tell you that many Volunteers serve successfully while managing chronic conditions. Would you like more information about how the medical clearance process works?"
+
+**PWS Alignment:**
+- 3.1.2 Prevent hallucinations (no "yes" or "no" to medical eligibility)
+- 3.1.7 Compliance with legal/ethical standards
+- 3.1.13 Transparency (acknowledges limitation)
+
+**Technical Showcase:**
+- **Keyword trigger:** "diabetes" activates medical disclaimer flow
+- **Guardrail:** System will NOT provide medical advice or eligibility prediction
+- **Hybrid architecture:** Deterministic safety response, not purely generative
+
+**Success Criteria:**
+- [ ] Response does NOT say "yes you qualify" or "no you don't"
+- [ ] Medical clearance process is accurately described
+- [ ] Offer to provide more information keeps conversation moving
+
+---
+
+### Phase 3: The Human Connection (Live Agent Handoff)
+**Duration:** 4 minutes
+
+**User Action:**
+> "I think I want to apply, but I'm a bit overwhelmed by the medical forms. Can I talk to someone about what information I need to gather?"
+
+**System Response:**
+> "Absolutely! I can connect you with a Peace Corps Recruitment Specialist who can walk you through the medical packet requirements and answer your specific questions.
+>
+> I'll share a summary of our conversation so you don't have to repeat yourself. One moment while I connect you..."
+
+**Visual Transition:**  
+Demo screen transitions to **Agent Desktop View** (split screen or tab switch)
+
+**Agent Desktop Display:**
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  INCOMING CHAT                                              │
+│  ─────────────────────────────────────────────────────────  │
+│  User: Sarah M. (Unverified)                                │
+│  Channel: peacecorps.gov Chat Widget                        │
+│  Wait Time: 0:03                                            │
+│                                                             │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │ AI CONVERSATION SUMMARY                              │   │
+│  │                                                      │   │
+│  │ User Profile:                                        │   │
+│  │ • 57 years old, retired English teacher (30 years)  │   │
+│  │ • Has well-controlled Type 2 diabetes               │   │
+│  │                                                      │   │
+│  │ Topics Discussed:                                    │   │
+│  │ • Age eligibility (confirmed no upper limit)        │   │
+│  │ • Medical clearance process overview                │   │
+│  │                                                      │   │
+│  │ User Intent:                                         │   │
+│  │ • Wants to apply but needs guidance on medical forms│   │
+│  │                                                      │   │
+│  │ Escalation Reason: User requested human assistance  │   │
+│  └─────────────────────────────────────────────────────┘   │
+│                                                             │
+│  SUGGESTED RESPONSES                                        │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │ "Hi Sarah! I see you're interested in applying and  │   │
+│  │ have some questions about the medical forms. I'd be │   │
+│  │ happy to walk you through what you'll need."        │   │
+│  └─────────────────────────────────────────────────────┘   │
+│                                                             │
+│  KNOWLEDGE ARTICLES                                         │
+│  • Medical Clearance FAQ (PC-MED-001)                      │
+│  • Pre-Application Checklist (PC-APP-012)                  │
+│  • Serving with Chronic Conditions (PC-MED-034)            │
+│                                                             │
+│  [ACCEPT CHAT]  [TRANSFER]  [DECLINE]                      │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**PWS Alignment:**
+- 3.1.5 Live Agent Transfer (seamless handoff)
+- 3.1.10 Human Oversight (human takes over complex case)
+- 3.1.11 Analytics (interaction captured for reporting)
+
+**Technical Showcase:**
+- Agent Assist conversation summarization (<5 second latency)
+- Full context preservation (user doesn't repeat themselves)
+- Suggested responses from knowledge base
+- CRM integration readiness (lead record would be linked)
+
+**Success Criteria:**
+- [ ] Summary accurately reflects Phase 1 and Phase 2 content
+- [ ] User intent is correctly identified
+- [ ] Relevant knowledge articles are surfaced
+- [ ] Transition feels seamless to evaluators
+
+---
+
+### Phase 4: The Operational View (Analytics Dashboard)
+**Duration:** 1 minute
+
+**Presenter Narration:**
+> "After Sarah's conversation, Peace Corps analysts can see the interaction reflected in their Looker dashboard..."
+
+**Dashboard Display (Static or Animated Mockup):**
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  PEACE CORPS CHATBOT - OPERATIONAL DASHBOARD                │
+│  Today: January 14, 2026                                    │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  TODAY'S METRICS                                            │
+│  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐        │
+│  │ Conversations│ │ Self-Service │ │ Escalation   │        │
+│  │     247      │ │    78.3%     │ │    21.7%     │        │
+│  │   ▲ 12%      │ │  ▲ Target:70%│ │  ▼ Target:30%│        │
+│  └──────────────┘ └──────────────┘ └──────────────┘        │
+│                                                             │
+│  RECENT CONVERSATION: Sarah M.                              │
+│  ├─ Status: Escalated to Live Agent (Completed)            │
+│  ├─ Topics: Age Eligibility, Medical Clearance             │
+│  ├─ Sentiment: Positive                                    │
+│  ├─ Response Accuracy: 100% (QA Verified)                  │
+│  └─ Lead Status: New (Pending CRM Sync)                    │
+│                                                             │
+│  TOP INQUIRY TOPICS (This Week)                            │
+│  1. Application Timeline ████████████████ 23%              │
+│  2. Age Requirements    ██████████████   19%               │
+│  3. Medical Clearance   █████████████    17%               │
+│  4. Country Selection   ██████████       14%               │
+│  5. Language Training   ████████         11%               │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**PWS Alignment:**
+- 3.1.11 Analytics and Reporting
+- 3.1.11.1 KPI Dashboard
+- 4.2.14 Key Performance Indicators Dashboard (deliverable)
+
+**Technical Showcase:**
+- Real-time conversation scoring via Quality AI
+- Topic categorization via Conversational Insights
+- Lead funnel integration readiness
+
+---
+
+## 7. Safety Protocol Note
+
+**PWS Requirement 3.1.9 (Emergency Response and User Safety):**
+
+> "The Chatbot shall implement safety protocols to detect and respond to emergencies, such as language or behavior indicating a user is in immediate danger (e.g., self-harm)."
+
+**Demo Approach:** Safety protocols are **implemented but not demonstrated** during Vendor Day due to content sensitivity.
+
+**Implementation Summary (Available for Q&A):**
+
+| Capability | Implementation |
+|------------|----------------|
+| Crisis language detection | Intent classifier trained on crisis indicators |
+| Response handling | Deterministic safety flow (not generative) |
+| Resource routing | 988 Suicide & Crisis Lifeline, Peace Corps emergency contacts |
+| Logging | All safety-flagged interactions logged for human review |
+| Escalation | Automatic flag to supervisor queue |
+
+**Supporting Documentation:** Safety protocol technical specification available upon request.
+
+---
+
+## 8. Technical Requirements
+
+### Frontend Components
+
+| Component | Fidelity | Description |
+|-----------|----------|-------------|
+| Chat Widget | **High** | Functional Peace Corps-branded chat interface; WCAG 2.1 AA compliant |
+| Agent Desktop | **Medium** | Live HTML page with pre-populated data; no real-time interactivity |
+| Analytics Dashboard | **Low-Medium** | Static or lightly animated mockup; demonstrates data model |
+
+### Backend Components
+
+| Component | Status | Notes |
+|-----------|--------|-------|
+| Vertex AI Conversational Agent | Required | Hybrid agent with playbooks |
+| Vertex AI Search Data Store | Required | Pre-loaded with Peace Corps content |
+| Agent Assist Summarization | Optional | Can be mocked if integration incomplete |
+| Looker Dashboard | Mock | Static visualization acceptable |
+
+### Data Requirements
+
+| Data Asset | Source | Status |
+|------------|--------|--------|
+| Age eligibility FAQ | peacecorps.gov/faqs | Public; needs extraction |
+| Medical clearance overview | peacecorps.gov/volunteer/health | Public; needs extraction |
+| Volunteer statistics (age demographics) | Peace Corps annual reports | Public; needs verification |
+| Sample conversation flows | Internal (this document) | Complete |
+
+### Conversation Flow Logic
+
+```
+┌─────────────────┐
+│   Session Start │
+│   (Phase 0)     │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐     ┌─────────────────┐
+│ Intent: Age     │────▶│ RAG Retrieval   │
+│ Eligibility     │     │ (Phase 1)       │
+└────────┬────────┘     └─────────────────┘
+         │
+         ▼
+┌─────────────────┐     ┌─────────────────┐
+│ Intent: Medical │────▶│ Safety Flow     │
+│ Condition       │     │ (Phase 2)       │
+└────────┬────────┘     └─────────────────┘
+         │
+         ▼
+┌─────────────────┐     ┌─────────────────┐
+│ Intent: Human   │────▶│ Agent Handoff   │
+│ Request         │     │ (Phase 3)       │
+└────────┬────────┘     └─────────────────┘
+         │
+         ▼
+┌─────────────────┐
+│ Session End /   │
+│ Analytics Log   │
+└─────────────────┘
+```
+
+---
+
+## 9. Timing Breakdown
+
+| Segment | Duration | Cumulative |
+|---------|----------|------------|
+| Introduction / Context Setting | 2:00 | 2:00 |
+| Phase 0: Bot Self-Identification | 0:30 | 2:30 |
+| Phase 1: Age Eligibility (RAG Demo) | 3:00 | 5:30 |
+| Phase 2: Medical Condition (Safety Demo) | 3:00 | 8:30 |
+| Phase 3: Live Agent Handoff | 4:00 | 12:30 |
+| Phase 4: Analytics Dashboard | 1:00 | 13:30 |
+| Wrap-up / Key Takeaways | 1:30 | 15:00 |
+| **Buffer / Recovery** | **3:00** | **18:00** |
+| Transition to Q&A | — | — |
+
+**Total Demo Time:** 15-18 minutes (within 20-minute window)
+
+**Contingency Notes:**
+- If Phase 3 handoff fails: Show static Agent Desktop mockup with narration
+- If RAG retrieval is slow: Pre-cache expected queries before demo
+- If time runs short: Phase 4 (Analytics) can be cut to 30 seconds
+
+---
+
+## 10. PWS Traceability Matrix
+
+| PWS Section | Requirement | Demo Phase | How Demonstrated |
+|-------------|-------------|------------|------------------|
+| 3.1.2 | User Experience (consistent voice) | All | Tone throughout conversation |
+| 3.1.3 | RAG with curated content | Phase 1 | Age policy retrieval |
+| 3.1.4 | Natural Language Processing | Phase 1, 2 | Understanding varied inputs |
+| 3.1.5 | Live Agent Transfer | Phase 3 | Handoff with context |
+| 3.1.7 | Compliance with legal/ethical | Phase 2 | Medical disclaimer |
+| 3.1.9 | Emergency Response | Note | Documented, not demoed |
+| 3.1.10 | Human Oversight | Phase 3 | Agent receives full context |
+| 3.1.11 | Analytics and Reporting | Phase 4 | Dashboard mockup |
+| 3.1.13 | Transparency | Phase 0, 2 | Bot self-ID; limitation acknowledgment |
+| 3.2.1 | Integration with website/CRM | Phase 3 | Lead status in dashboard |
+
+---
+
+## 11. Open Items
+
+| Item | Owner | Due Date | Status |
+|------|-------|----------|--------|
+| Extract FAQ content from peacecorps.gov | TBD | TBD | Not Started |
+| Verify volunteer age statistics | TBD | TBD | Not Started |
+| Build chat widget UI | TBD | TBD | Not Started |
+| Create Agent Desktop mockup | TBD | TBD | Not Started |
+| Create Analytics Dashboard mockup | TBD | TBD | Not Started |
+| Configure Vertex AI Search data store | TBD | TBD | Not Started |
+| Define conversation playbook in Dialogflow CX | TBD | TBD | Not Started |
+| Accessibility testing (WCAG 2.1 AA) | TBD | TBD | Not Started |
+
+---
+
+## Appendix A: Key Messages for Evaluators
+
+After the demo, evaluators should walk away believing:
+
+1. **"They understand our mission."** The demo centers on inclusivity and helping non-traditional candidates—core Peace Corps values.
+
+2. **"The AI won't embarrass us."** RAG grounding and safety guardrails prevent hallucinations and inappropriate responses.
+
+3. **"Technology enhances human connection."** The handoff to a live agent is the climax, not the AI answering everything.
+
+4. **"They've thought about operations."** The analytics view shows this isn't just a chatbot—it's a recruitment intelligence platform.
+
+5. **"They can actually build this."** Concrete technical showcase, not just slides and promises.
+
+---
+
+## Appendix B: Glossary
+
+| Term | Definition |
+|------|------------|
+| **RAG** | Retrieval-Augmented Generation; technique that grounds LLM responses in retrieved documents |
+| **Guardrail** | Deterministic rule that prevents the AI from generating certain types of content |
+| **Agent Assist** | Google CES feature providing real-time support to human agents |
+| **Vertex AI Search** | Google Cloud's semantic search engine for enterprise content |
+| **Conversational Insights** | Analytics layer for conversation quality scoring and topic detection |
+| **Quality AI** | Automated conversation scoring (vs. traditional manual QA sampling) |
+
+---
+
+*End of Document*

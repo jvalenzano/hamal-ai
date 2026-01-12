@@ -1,4 +1,4 @@
-# Hamal TechTrend Setup Guide
+# Hamal Setup Guide
 
 Complete installation and configuration instructions for the Hamal AI validation framework.
 
@@ -19,7 +19,7 @@ Complete installation and configuration instructions for the Hamal AI validation
 
 ```bash
 git clone <repository-url>
-cd hamal-techtrend
+cd hamal
 ```
 
 ### 2. Create Virtual Environment
@@ -221,7 +221,7 @@ python hamal.py run data/ranger_charter.txt
 ### Expected Directory Structure
 
 ```
-hamal-techtrend/
+hamal/
 ├── .env                    # Your API keys (gitignored)
 ├── .env.example            # Template
 ├── agents/
@@ -232,7 +232,7 @@ hamal-techtrend/
 │   ├── summary.py
 │   └── utils.py            # LiteLLM wrapper
 ├── data/
-│   ├── projects.json       # TechTrend history
+│   ├── projects.json       # Project history
 │   └── test_charter.txt
 ├── outputs/                # Generated reports
 └── hamal.py                # Main orchestrator

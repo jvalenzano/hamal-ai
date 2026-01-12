@@ -6,7 +6,7 @@
 
 ## 🎉 State of the Union
 
-### ✅ Major Milestone: Hamal TechTrend Pipeline Operational
+### ✅ Major Milestone: Hamal Pipeline Operational
 
 The Hamal agent pipeline is **fully functional** and successfully validated with a real-world charter (Peace Corps recruitment chatbot). All 4 agents executed end-to-end, generating comprehensive validation reports.
 
@@ -62,7 +62,7 @@ The Hamal agent pipeline is **fully functional** and successfully validated with
 - [ ] **Multi-Charter Support** - Batch processing for multiple charters
 - [ ] **Agent Improvements** - Better JSON parsing, structured outputs
 - [ ] **Cost Tracking** - Monitor LLM API usage and costs
-- [ ] **Hamal V2** - Incorporate learnings from TechTrend into framework
+- [ ] **Hamal V2** - Incorporate learnings from pilot into framework
 
 ---
 
@@ -78,9 +78,9 @@ The Hamal agent pipeline is **fully functional** and successfully validated with
 - **API Keys**: Configured in `.env`
 
 **Key Files**:
-- [`hamal.py`](file:///Users/jvalenzano/Projects/HAMAL/hamal-techtrend/hamal.py) - CLI orchestrator
-- [`agents/utils.py`](file:///Users/jvalenzano/Projects/HAMAL/hamal-techtrend/agents/utils.py) - Centralized LLM calls
-- [`agents/*.py`](file:///Users/jvalenzano/Projects/HAMAL/hamal-techtrend/agents/) - 4 agent implementations
+- [`hamal.py`](file:///Users/jvalenzano/Projects/HAMAL/hamal.py) - CLI orchestrator
+- [`agents/utils.py`](file:///Users/jvalenzano/Projects/HAMAL/agents/utils.py) - Centralized LLM calls
+- [`agents/*.py`](file:///Users/jvalenzano/Projects/HAMAL/agents/) - 4 agent implementations
 
 ---
 
@@ -118,5 +118,5 @@ The Hamal agent pipeline is **fully functional** and successfully validated with
 
 - [NORTH_STAR.md](file:///Users/jvalenzano/Projects/HAMAL/NORTH_STAR.md) - Project vision
 - [Hamal Framework](file:///Users/jvalenzano/Projects/HAMAL/hamal-framework/HAMAL_FRAMEWORK.md) - Methodology
-- [Peace Corps Outputs](file:///Users/jvalenzano/Projects/HAMAL/hamal-techtrend/outputs/peace-corps-demo-charter-v1.md/) - Latest test results
-- [Troubleshooting Handoff](file:///Users/jvalenzano/Projects/HAMAL/hamal-techtrend/TROUBLESHOOTING_HANDOFF.md) - Context for LiteLLM refactor
+- [Peace Corps Outputs](file:///Users/jvalenzano/Projects/HAMAL/outputs/peace-corps-demo-charter-v1.md/) - Latest test results
+- [Troubleshooting](file:///Users/jvalenzano/Projects/HAMAL/docs/TROUBLESHOOTING.md) - Context for LiteLLM refactor

@@ -67,44 +67,50 @@ def extract_architecture_data(architecture_path):
         'stack': {}
     }
     
-    # Extract total cost
-    total_match = re.search(r'\*\*\$?([\d,]+)\*\*\s*\(Dev', content)
+    # Extract total cost (Look for header or specific format)
+    # Matches: ### Total Project Cost\n**$80,000**
+    total_match = re.search(r'### Total Project Cost.*?\n\s*\*\*?\$?([\d,]+)\*\*?', content, re.IGNORECASE | re.DOTALL)
     if total_match:
         data['total_cost'] = int(total_match.group(1).replace(',', ''))
     
     # Extract dev cost
-    dev_match = re.search(r'Dev \$?([\d,]+)', content)
+    # Matches: - **Total Dev Cost:** $75,000
+    dev_match = re.search(r'Total Dev Cost.*?\*\*?\$?([\d,]+)', content, re.IGNORECASE)
     if dev_match:
         data['dev_cost'] = int(dev_match.group(1).replace(',', ''))
     
     # Extract GCP monthly
-    monthly_match = re.search(r'Monthly Total:\*\*\s*\$?([\d,]+)', content)
+    # Matches: - **Monthly:** $500
+    monthly_match = re.search(r'Monthly.*?\*\*?\$?([\d,]+)', content, re.IGNORECASE)
     if monthly_match:
         data['gcp_monthly'] = int(monthly_match.group(1).replace(',', ''))
     
     # Extract timeline
-    timeline_match = re.search(r'\*\*Duration:\*\*\s*(\d+)\s*weeks', content)
+    timeline_match = re.search(r'\*\*Duration:\*\*\s*(\d+)\s*weeks', content, re.IGNORECASE)
     if timeline_match:
         data['timeline_weeks'] = int(timeline_match.group(1))
     
     # Extract dev hours
-    hours_match = re.search(r'Total Hours:\*\*\s*([\d,]+)', content)
+    # Matches: - **Total Hours:** 500 hours
+    hours_match = re.search(r'Total Hours.*?\*\*?\s*([\d,]+)', content, re.IGNORECASE)
     if hours_match:
         data['dev_hours'] = int(hours_match.group(1).replace(',', ''))
     
     # Extract stack (simplified)
+    # Using more flexible lookaheads and case insensitivity
     stack_sections = {
-        'Backend': r'\*\*Language/Framework:\*\*\s*(.+?)(?=\n\*\*)',
-        'Database': r'\*\*Primary:\*\*\s*(.+?)(?=\n\*\*)',
-        'AI/ML': r'\*\*Platform:\*\*\s*(.+?)(?=\n\*\*)',
-        'Frontend': r'\*\*Framework:\*\*\s*(.+?)(?=\n\*\*)',
-        'Deployment': r'\*\*Platform:\*\*\s*(.+?)(?=\n\*\*)'
+        'Backend': r'\*\*Language/Framework:\*\*\s*(.+?)(?=\n)',
+        'Database': r'\*\*Primary:\*\*\s*(.+?)(?=\n)',
+        'AI/ML': r'\*\*Platform:\*\*\s*(.+?)(?=\n)',
+        'Frontend': r'\*\*Framework:\*\*\s*(.+?)(?=\n)',
+        'Deployment': r'\*\*Platform:\*\*\s*(.+?)(?=\n)'
     }
     
     for key, pattern in stack_sections.items():
-        match = re.search(pattern, content)
+        match = re.search(pattern, content, re.IGNORECASE)
         if match:
-            data['stack'][key] = match.group(1).strip()
+            # Clean up potential markdown artifacts
+            data['stack'][key] = match.group(1).strip().strip('*')
     
     return data
 

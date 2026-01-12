@@ -42,7 +42,7 @@ All errors logged to `state.json`:
 
 ```bash
 # Activate venv first
-cd /Users/jvalenzano/Projects/HAMAL/hamal-techtrend
+cd .
 source venv/bin/activate
 
 # Run test script

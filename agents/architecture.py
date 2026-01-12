@@ -2,7 +2,7 @@
 """
 Architecture Agent - Stack Recommendation & Cost Estimation
 
-Purpose: Generate buildable architecture based on similar TechTrend projects
+Purpose: Generate buildable architecture based on similar historical projects
 Method: Similarity search + LLM-based stack recommendation
 Output: architecture.md (stack, costs, timeline, reusable components)
 """
@@ -52,7 +52,7 @@ def extract_json(text: str) -> dict:
 
 def load_project_history() -> list:
 
-    """Load TechTrend project history from data/projects.json"""
+    """Load project history from data/projects.json"""
     with open("data/projects.json", "r") as f:
         return json.load(f)
 
@@ -92,7 +92,7 @@ def find_similar_projects(problem_md: str, project_history: list) -> list:
 def recommend_stack(problem_md: str, validation_md: str, similar_projects: list) -> dict:
     """
     Recommend tech stack based on:
-    - TechTrend defaults (FastAPI, React, Vertex AI, AlloyDB)
+    - Hamal defaults (FastAPI, React, Vertex AI, AlloyDB)
     - Project-specific needs (from problem/validation)
     - Similar project patterns
     
@@ -285,7 +285,7 @@ def build_timeline(complexity_scores: dict, timeline_weeks: int) -> list:
     
     system_prompt = """You are creating a project timeline.
 
-**Standard TechTrend phases:**
+**Standard project phases:**
 1. **Design Phase** (Weeks 1-2): Architecture, mockups, data flow diagrams
 2. **Backend Development** (Weeks 3-X): APIs, data pipeline, AI integration
 3. **Frontend Development** (Weeks 4-X): UI, dashboard, user testing

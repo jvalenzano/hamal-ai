@@ -1,0 +1,21 @@
+NOAA - Intelligent Grant Application Processing (IGAP)
+
+Problem: NOAA’s Office of Education receives approximately 3,000 grant applications per year. Each application must undergo a rigorous administrative review for compliance with Funding Opportunity Announcement (FOA) requirements (e.g., budget limits, indirect cost caps, eligibility of PIs, required attachments). This manual process takes 4-6 weeks per cycle and involves high error rates.
+
+Impact: The total grant award cycle extends to 9-12 months, often missing optimal seasonal windows for oceanographic research flights and cruises. High administrative overhead (estimated at $1.2M annually) reduces the total funds available for research awards.
+
+Frequency: Three major grant cycles per year.
+
+Current Approach: A team of 15 administrative staff manually reviews each PDF application, checking boxes on a 40-item spreadsheet. Data must then be manually re-entered into the Grants.gov tracking system.
+
+Request: A comprehensive AI system capable of:
+1. Extracting structured data from complex PDF grant applications.
+2. Cross-referencing applications against FOA-specific rule sets for administrative compliance.
+3. Automatically flagging eligibility issues and budget discrepancies.
+4. Generating natural language summaries of the proposal’s technical scope for peer reviewers.
+
+Budget: $850,000 approved for multi-year development.
+
+Timeline: Phase 1 (Data Extraction) due in 4 months. Full system due in 12 months.
+
+Contact: Grant Management Officer, NOAA Office of Education

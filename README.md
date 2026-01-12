@@ -94,7 +94,7 @@ DEFAULT_MODEL=gpt-4o
 ## Project Structure
 
 - **agents/** - Individual agent implementations (discovery, research, validation, architecture, summary)
-- **data/** - TechTrend project history, domain context, test inputs
+- **data/** - Project history, domain context, test inputs
 - **outputs/** - Generated reports per validation run (outputs/project-name/)
 - **tests/** - Test cases for agents
 - **hamal.py** - Main orchestrator CLI

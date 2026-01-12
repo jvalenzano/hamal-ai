@@ -1,4 +1,4 @@
-# Hamal TechTrend Troubleshooting
+# Hamal Troubleshooting
 
 Common errors and solutions for the Hamal AI validation framework.
 
@@ -195,7 +195,7 @@ TAVILY_API_KEY=tvly-...
 # Verify file exists
 ls -lh data/projects.json
 
-# Should contain TechTrend project history
+# Should contain project history
 # If missing, create minimal version:
 echo '{"projects": []}' > data/projects.json
 ```
@@ -217,7 +217,7 @@ python agents/discovery.py data/peace-corps-charter.txt
 
 **Cause:** Empty `data/projects.json`
 
-**This is expected** for first run - agent will use TechTrend defaults.
+**This is expected** for first run - agent will use system defaults.
 
 ### Summary Agent: "Missing required file: validation.md"
 
