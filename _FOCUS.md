@@ -68,7 +68,8 @@ The Hamal agent pipeline is **fully functional** and successfully validated with
 
 ## 🔧 Current Configuration
 
-**Environment**: `hamal-techtrend/`
+**Environment**: `root`
+- **Path**: `.` (Repository Root)
 - **Python**: 3.14 (venv activated)
 - **LLM Provider**: LiteLLM (supports Anthropic, OpenRouter, Vertex, Gemini)
 - **Models**: 
