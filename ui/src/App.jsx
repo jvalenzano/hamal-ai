@@ -36,13 +36,51 @@ const HamalApp = () => {
                             className="flex items-center space-x-5 cursor-pointer group"
                             onClick={resetPipeline}
                         >
-                            {/* Logo - Always Pure White on Dark Header */}
-                            <div className="relative h-20 w-20 transition-transform transform group-hover:scale-105">
-                                <img
-                                    src="/logo-master-v2.png"
-                                    alt="Hamal Logo"
-                                    className="w-full h-full object-contain filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]"
-                                />
+                            {/* Logo - Hand-coded Geometric Vector SVG */}
+                            <div className="relative h-14 w-14 transition-transform transform group-hover:scale-105">
+                                <svg
+                                    viewBox="0 0 100 100"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="w-full h-full text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]"
+                                >
+                                    {/* Central Star - The "Alpha Arietis" */}
+                                    <path
+                                        d="M50 20L55 35L70 40L55 45L50 60L45 45L30 40L45 35L50 20Z"
+                                        fill="#EA580C"
+                                        stroke="white"
+                                        strokeWidth="2"
+                                        strokeLinejoin="round"
+                                    />
+
+                                    {/* Geometric Ram Head Construction */}
+                                    {/* Forehead/Nose Bridge */}
+                                    <path
+                                        d="M40 40 L40 70 L50 80 L60 70 L60 40"
+                                        stroke="white"
+                                        strokeWidth="3"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    />
+
+                                    {/* Left Horn */}
+                                    <path
+                                        d="M40 40 C 30 40, 20 30, 20 50 C 20 65, 35 75, 40 70"
+                                        stroke="white"
+                                        strokeWidth="3"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    />
+
+                                    {/* Right Horn */}
+                                    <path
+                                        d="M60 40 C 70 40, 80 30, 80 50 C 80 65, 65 75, 60 70"
+                                        stroke="white"
+                                        strokeWidth="3"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    />
+                                </svg>
                             </div>
 
                             <div className="flex flex-col justify-center">
