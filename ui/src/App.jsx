@@ -30,23 +30,32 @@ const HamalApp = () => {
             {/* Navigation / Header */}
             <nav className="border-b border-brand-blue/10 dark:border-brand-blue/30 backdrop-blur-md sticky top-0 z-50 bg-white/70 dark:bg-brand-dark/50 transition-colors duration-500">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between h-24"> {/* Increased height for larger logo */}
+                    <div className="flex items-center justify-between h-24">
                         {/* Logo & Brand */}
                         <div
-                            className="flex items-center space-x-6 cursor-pointer group"
+                            className="flex items-center space-x-5 cursor-pointer group"
                             onClick={resetPipeline}
                         >
-                            <img
-                                src={darkMode ? "/logo-icon-dark.png" : "/logo-icon-light.png"}
-                                alt="Hamal Logo"
-                                className={`h-24 w-24 object-contain transition-transform transform group-hover:scale-110
-                                    ${darkMode ? 'mix-blend-screen drop-shadow-neon-orange' : 'mix-blend-multiply drop-shadow-md'}`}
-                            />
-                            <div>
-                                <h1 className="text-3xl font-bold tracking-widest font-mono text-slate-900 dark:text-white">
+                            {/* Master Geometric Logo */}
+                            <div className="relative h-20 w-20 transition-transform transform group-hover:scale-105">
+                                {/* Light Mode: Multiply blend to remove white, show Navy/Amber */}
+                                {/* Dark Mode: Invert colors to make Navy->White/Cyan, Amber->Blueish (or close enough for glowing effect) */}
+                                <img
+                                    src="/logo-master.png"
+                                    alt="Hamal Logo"
+                                    className={`w-full h-full object-contain 
+                                        ${darkMode
+                                            ? 'filter invert hue-rotate-180 brightness-125 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] mix-blend-screen'
+                                            : 'mix-blend-multiply drop-shadow-sm'
+                                        }`}
+                                />
+                            </div>
+
+                            <div className="flex flex-col justify-center">
+                                <h1 className="text-3xl font-bold tracking-tight font-sans text-slate-900 dark:text-white leading-none">
                                     HAMAL
                                 </h1>
-                                <span className="text-xs uppercase tracking-[0.4em] text-brand-orange font-semibold dark:text-glow">
+                                <span className="text-xs font-semibold text-brand-orange uppercase tracking-[.25em] mt-1.5 opacity-90">
                                     Autonomous Validation
                                 </span>
                             </div>
@@ -56,17 +65,17 @@ const HamalApp = () => {
                             {/* Theme Toggle */}
                             <button
                                 onClick={() => setDarkMode(!darkMode)}
-                                className="p-3 rounded-full hover:bg-slate-200 dark:hover:bg-brand-surface transition-colors border border-transparent hover:border-slate-300 dark:hover:border-brand-blue/50"
+                                className="p-2.5 rounded-full text-slate-500hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-blue/20"
                                 title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
                             >
-                                <span className="text-xl">{darkMode ? '☀️' : '🌙'}</span>
+                                <span className="text-xl opacity-80">{darkMode ? '☀️' : '🌙'}</span>
                             </button>
 
                             {/* Status Indicator */}
                             {pipelineState && (
-                                <div className="flex items-center space-x-2 bg-white dark:bg-brand-surface px-4 py-1.5 rounded-sm border border-slate-200 dark:border-brand-blue/50 backdrop-blur-sm shadow-sm dark:shadow-neon-blue">
-                                    <span className={`w-2 h-2 rounded-full ${pipelineState.status === 'running' ? 'bg-brand-orange animate-ping' : 'bg-emerald-400'}`}></span>
-                                    <span className="text-xs font-mono uppercase text-slate-600 dark:text-blue-200 tracking-wider">
+                                <div className="flex items-center space-x-2 bg-slate-50 dark:bg-slate-800 px-3 py-1.5 rounded-md border border-slate-200 dark:border-slate-700 shadow-sm">
+                                    <span className={`w-2 h-2 rounded-full ${pipelineState.status === 'running' ? 'bg-brand-orange animate-pulse' : 'bg-emerald-500'}`}></span>
+                                    <span className="text-xs font-semibold uppercase text-slate-600 dark:text-slate-300 tracking-wide">
                                         {pipelineState.status}
                                     </span>
                                 </div>
@@ -77,15 +86,18 @@ const HamalApp = () => {
             </nav>
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 {!pipelineState ? (
-                    <div className="space-y-12 animate-fade-in-up">
+                    <div className="space-y-16 animate-fade-in-up">
                         {/* Branding Hero Section */}
-                        <div className="text-center max-w-4xl mx-auto space-y-8 py-8">
-                            <h2 className="text-5xl md:text-7xl font-bold text-slate-900 dark:text-white tracking-tight">
-                                The <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-amber-500 drop-shadow-md dark:drop-shadow-neon-orange">Head of the Ram</span>
+                        <div className="text-center max-w-3xl mx-auto space-y-10 py-4">
+                            {/* Consistent Headline Typography */}
+                            <h2 className="text-5xl md:text-6xl font-bold text-slate-900 dark:text-white tracking-tight leading-tight">
+                                The <span className="text-transparent bg-clip-text bg-gradient-to-br from-brand-orange to-amber-500">Head of the Ram</span>
                             </h2>
-                            <div className="relative bg-white dark:bg-brand-surface p-8 rounded-lg border border-slate-200 dark:border-brand-blue/30 backdrop-blur-sm max-w-2xl mx-auto shadow-sm dark:shadow-none">
-                                <div className="absolute top-0 left-0 w-2 h-full bg-brand-orange/50 rounded-l-lg"></div>
-                                <p className="text-lg text-slate-600 dark:text-blue-100 font-light leading-relaxed tracking-wide">
+
+                            {/* Left-Aligned professional quote block */}
+                            <div className="relative bg-white dark:bg-slate-800/50 p-8 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm text-left">
+                                <div className="absolute top-8 left-0 w-1 h-16 bg-brand-orange rounded-r-full"></div>
+                                <p className="text-lg text-slate-600 dark:text-slate-300 font-normal leading-relaxed pl-4">
                                     "Hamal (Alpha Arietis) is the brightest star in Aries. Just as this star historically guided navigators,
                                     this intelligence layer serves as the <strong className="text-slate-900 dark:text-white font-medium">brain of the constellation</strong>—guiding ideas from the chaos of conception to the clarity of execution."
                                 </p>

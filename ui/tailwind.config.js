@@ -9,11 +9,11 @@ export default {
         extend: {
             colors: {
                 brand: {
-                    dark: '#050A14',
-                    blue: '#0B3D91',
-                    orange: '#FF4500',
-                    purple: '#4B0082',
-                    surface: 'rgba(11, 61, 145, 0.15)', // Glass effect base
+                    dark: '#0F172A', // Slate-900 for a more "tooling" feel than pure black
+                    blue: '#0B3D91', // Keep classic deep blue
+                    orange: '#EA580C', // Orange-600: Professional, less "neon"
+                    purple: '#4F46E5', // Indigo-600: More standard SaaS purple
+                    surface: 'rgba(15, 23, 42, 0.5)', // Slate based glass
                 }
             },
             backgroundImage: {

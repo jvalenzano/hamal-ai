@@ -24,36 +24,34 @@ const InputForm = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto p-8 bg-white dark:bg-glass-panel rounded-xl border border-slate-200 dark:border-brand-blue/30 backdrop-blur-md shadow-2xl relative overflow-hidden group transition-all duration-300">
-            {/* Subtle glow effect */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-orange/5 dark:bg-brand-blue/20 rounded-full blur-3xl -z-10 group-hover:bg-brand-orange/10 dark:group-hover:bg-brand-blue/30 transition-all duration-700"></div>
-
-            <h2 className="text-2xl font-mono font-bold mb-6 text-slate-800 dark:text-white flex items-center">
-                <span className="text-brand-orange mr-2">➜</span> INITIALIZE_SEQUENCE
+        <div className="max-w-4xl mx-auto p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-xl transition-all duration-300">
+            {/* Clean header, no gaming underscores */}
+            <h2 className="text-2xl font-semibold mb-6 text-slate-900 dark:text-white flex items-center tracking-tight">
+                <span className="text-brand-orange mr-3">➜</span> Project Initialization
             </h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-8">
                 <div>
-                    <label className="block text-xs font-mono uppercase tracking-widest text-slate-500 dark:text-brand-blue/80 mb-2">
-                        Project Identification
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                        Project Name
                     </label>
                     <input
                         type="text"
                         value={localProjectName}
                         onChange={(e) => setLocalProjectName(e.target.value)}
-                        className="w-full px-4 py-3 bg-slate-50 dark:bg-brand-dark/50 border border-slate-300 dark:border-brand-blue/30 rounded-none focus:ring-1 focus:ring-brand-orange focus:border-brand-orange text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 font-mono transition-all"
-                        placeholder="PROJECT_CODENAME"
+                        className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-brand-orange/20 focus:border-brand-orange text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 transition-all shadow-sm"
+                        placeholder="e.g. Venus Exploration"
                     />
                 </div>
 
                 <div>
-                    <label className="block text-xs font-mono uppercase tracking-widest text-slate-500 dark:text-brand-blue/80 mb-2">
-                        Directive Input / Charter
+                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                        Charter / Directive
                     </label>
                     <textarea
                         value={charterText}
                         onChange={(e) => setCharterText(e.target.value)}
-                        className="w-full h-64 px-4 py-4 bg-slate-50 dark:bg-brand-dark/50 border border-slate-300 dark:border-brand-blue/30 rounded-none focus:ring-1 focus:ring-brand-orange focus:border-brand-orange text-slate-800 dark:text-blue-100 font-mono text-sm leading-relaxed"
-                        placeholder="// Enter mission parameters or paste project charter..."
+                        className="w-full h-64 px-4 py-4 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-brand-orange/20 focus:border-brand-orange text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-sm leading-relaxed shadow-sm font-mono"
+                        placeholder="Paste your project charter or mission parameters here..."
                         required
                     />
                 </div>
