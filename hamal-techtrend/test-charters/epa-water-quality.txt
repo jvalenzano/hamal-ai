@@ -1,0 +1,17 @@
+EPA - Predictive Water Quality Analytics
+
+Problem: The EPA monitors water quality through thousands of distributed sensors. Currently, many pollution events, such as harmful algal blooms or chemical spikes, are only identified after they have occurred. Data from sensors, local weather stations, and historical trends are not integrated in real-time, making it impossible to predict emerging issues.
+
+Impact: Delayed public health warnings and late deployment of mitigation teams. Estimated avoidable environmental damage of $10M+ annually. Public health impacts include gastrointestinal illnesses from contaminated recreational waters.
+
+Frequency: Millions of sensor readings daily; weekly trend analysis.
+
+Current Approach: Regional data scientists manually export sensor data into R or Python scripts for retrospective analysis. There is no automated cross-agency data sharing for weather or agricultural runoff models.
+
+Request: An AI platform that integrates real-time sensor data, NOAA weather feeds, and historical pollution records to predict water quality issues 48 hours in advance. Must include a geospatial dashboard for risk visualization.
+
+Budget: $250,000 for Initial Operating Capability (IOC).
+
+Timeline: 6 months for prototype; 12 months for full integration.
+
+Contact: Director of Environmental Monitoring, Office of Water

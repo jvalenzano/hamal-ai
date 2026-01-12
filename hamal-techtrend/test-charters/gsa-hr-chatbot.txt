@@ -1,0 +1,17 @@
+GSA - Internal HR Policy Chatbot
+
+Problem: GSA employees struggle to navigate thousands of pages of internal HR policy manuals. This results in the HR department receiving over 500 tickets per month for simple questions regarding leave policies, health insurance benefits, and administrative procedures that are already documented.
+
+Impact: 30% of HR specialist time is consumed by repetitive inquiry response, delaying the processing of complex cases (e.g., retirement planning, disciplinary actions) by an average of 15 days.
+
+Frequency: Continuous daily inquiries across the agency.
+
+Current Approach: Searchable PDFs and a static SharePoint wiki. Users often find conflicting information or struggle with technical jargon, leading them to contact HR directly.
+
+Request: An AI-powered conversational interface (RAG-based) that can accurately answer HR-related questions by indexing the latest policy documents. Must provide citations to the source documents.
+
+Budget: $50,000 internal innovation grant.
+
+Timeline: 12 weeks for pilot deployment.
+
+Contact: Chief Human Capital Officer, GSA

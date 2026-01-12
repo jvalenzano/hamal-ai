@@ -1,0 +1,55 @@
+[
+    {
+        "id": "ranger_2025",
+        "name": "RANGER",
+        "problem": "Post-fire recovery coordination across multiple agencies - manual consolidation of damage reports causing 40-60% delays in crew deployment",
+        "agency": "USDA Forest Service",
+        "stack": [
+            "FastAPI",
+            "React",
+            "Vertex AI",
+            "AlloyDB",
+            "Cloud Run"
+        ],
+        "timeline": "12 weeks",
+        "cost": "$85,000",
+        "outcome": "Deployed in 3 regions, 40% faster triage, FedRAMP Moderate compliant",
+        "lessons": [
+            "Multi-format data ingestion (PDF, Word, email) was hardest part",
+            "Real-time processing not needed - 4-hour batch was acceptable",
+            "Inter-agency MOA took 3 weeks (legal bottleneck)"
+        ],
+        "compliance": [
+            "FedRAMP Moderate",
+            "508 Accessibility",
+            "PII handling"
+        ],
+        "date": "2025-08"
+    },
+    {
+        "id": "trailwatch_2025",
+        "name": "TrailWatch",
+        "problem": "Trail damage reporting and triage - citizens report damage via photo/GPS, AI classifies severity, auto-generates closure notices",
+        "agency": "USDA Forest Service",
+        "stack": [
+            "FastAPI",
+            "React PWA",
+            "Vertex AI",
+            "Cloud Storage",
+            "Firebase"
+        ],
+        "timeline": "6 weeks (MVP)",
+        "cost": "$45,000",
+        "outcome": "Pilot in 2 national forests, 60% reduction in manual triage time",
+        "lessons": [
+            "Photo classification (Gemini Vision) worked better than expected (92% accuracy)",
+            "Citizen adoption required marketing push (not just technical solution)",
+            "Offline-first PWA was critical for rural connectivity"
+        ],
+        "compliance": [
+            "508 Accessibility",
+            "Public-facing security"
+        ],
+        "date": "2025-11"
+    }
+]
