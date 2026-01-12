@@ -18,8 +18,6 @@ from agents.discovery import run_discovery
 from agents.research import run_research
 from agents.validation import run_validation
 from agents.architecture import run_architecture
-from agents.summary import main as run_summary
-from agents.summary import main as run_summary
 from agents.utils import set_verbose, FatalError
 
 # Optional: Import FastAPI/Uvicorn only inside serve to keep CLI fast? 
