@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { PipelineProvider, usePipeline } from './context/PipelineContext';
 import InputForm from './components/InputForm';
 import PipelineProgress from './components/PipelineProgress';
+import ActivityLog from './components/ActivityLog';
+import OutputViewer from './components/OutputViewer';
+import ParticlesBackground from './components/ParticlesBackground';
 
 const HamalApp = () => {
     const { pipelineState, resetPipeline } = usePipeline();
@@ -24,8 +27,11 @@ const HamalApp = () => {
     }, [darkMode]);
 
     return (
-        <div className="min-h-screen relative transition-colors duration-500 selection:bg-brand-orange/30 dark:text-slate-100 text-slate-900">
-            <div className="stars"></div>
+        <div className="min-h-screen relative transition-colors duration-500 selection:bg-brand-orange/30 dark:text-slate-100 text-slate-900 bg-slate-50 dark:bg-slate-950">
+            {/* The Neural Constellation System */}
+            <div className="fixed inset-0 pointer-events-none z-0">
+                <ParticlesBackground />
+            </div>
 
             {/* Navigation / Header - PERSISTENT DARK MODE */}
             <nav className="border-b border-white/10 sticky top-0 z-50 bg-slate-900 transition-colors duration-500 backdrop-blur-md supports-[backdrop-filter]:bg-slate-900/90">
@@ -112,7 +118,7 @@ const HamalApp = () => {
                             {/* Status Indicator */}
                             {pipelineState && (
                                 <div className="flex items-center space-x-2 bg-slate-800 px-3 py-1.5 rounded-md border border-slate-700 shadow-sm">
-                                    <span className={`w-2 h-2 rounded-full ${pipelineState.status === 'running' ? 'bg-brand-orange animate-pulse' : 'bg-emerald-500'}`}></span>
+                                    <span className={`w - 2 h - 2 rounded - full ${pipelineState.status === 'running' ? 'bg-brand-orange animate-pulse' : 'bg-emerald-500'} `}></span>
                                     <span className="text-xs font-semibold uppercase text-slate-300 tracking-wide">
                                         {pipelineState.status}
                                     </span>
