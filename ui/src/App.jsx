@@ -27,8 +27,8 @@ const HamalApp = () => {
         <div className="min-h-screen relative transition-colors duration-500 selection:bg-brand-orange/30 dark:text-slate-100 text-slate-900">
             <div className="stars"></div>
 
-            {/* Navigation / Header */}
-            <nav className="border-b border-brand-blue/10 dark:border-brand-blue/30 backdrop-blur-md sticky top-0 z-50 bg-white/70 dark:bg-brand-dark/50 transition-colors duration-500">
+            {/* Navigation / Header - PERSISTENT DARK MODE */}
+            <nav className="border-b border-white/10 sticky top-0 z-50 bg-slate-900 transition-colors duration-500 backdrop-blur-md supports-[backdrop-filter]:bg-slate-900/90">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-24">
                         {/* Logo & Brand */}
@@ -36,23 +36,17 @@ const HamalApp = () => {
                             className="flex items-center space-x-5 cursor-pointer group"
                             onClick={resetPipeline}
                         >
-                            {/* Master Geometric Logo */}
+                            {/* Logo - Always Pure White on Dark Header */}
                             <div className="relative h-20 w-20 transition-transform transform group-hover:scale-105">
-                                {/* Light Mode: Normal Transparent PNG */}
-                                {/* Dark Mode: Brightness 0 -> Black, Invert -> White. Pure Flat White Icon. */}
                                 <img
                                     src="/logo-master-v2.png"
                                     alt="Hamal Logo"
-                                    className={`w-full h-full object-contain 
-                                        ${darkMode
-                                            ? 'filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]'
-                                            : 'drop-shadow-sm'
-                                        }`}
+                                    className="w-full h-full object-contain filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]"
                                 />
                             </div>
 
                             <div className="flex flex-col justify-center">
-                                <h1 className="text-3xl font-bold tracking-tight font-sans text-slate-900 dark:text-white leading-none">
+                                <h1 className="text-3xl font-bold tracking-tight font-sans text-white leading-none">
                                     HAMAL
                                 </h1>
                                 <span className="text-xs font-semibold text-brand-orange uppercase tracking-[.25em] mt-1.5 opacity-90">
@@ -62,20 +56,20 @@ const HamalApp = () => {
                         </div>
 
                         <div className="flex items-center space-x-6">
-                            {/* Theme Toggle */}
+                            {/* Theme Toggle - Always white/light on dark header */}
                             <button
                                 onClick={() => setDarkMode(!darkMode)}
-                                className="p-2.5 rounded-full text-slate-500hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-blue/20"
+                                className="p-2.5 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-blue/50"
                                 title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
                             >
-                                <span className="text-xl opacity-80">{darkMode ? '☀️' : '🌙'}</span>
+                                <span className="text-xl opacity-90">{darkMode ? '☀️' : '🌙'}</span>
                             </button>
 
                             {/* Status Indicator */}
                             {pipelineState && (
-                                <div className="flex items-center space-x-2 bg-slate-50 dark:bg-slate-800 px-3 py-1.5 rounded-md border border-slate-200 dark:border-slate-700 shadow-sm">
+                                <div className="flex items-center space-x-2 bg-slate-800 px-3 py-1.5 rounded-md border border-slate-700 shadow-sm">
                                     <span className={`w-2 h-2 rounded-full ${pipelineState.status === 'running' ? 'bg-brand-orange animate-pulse' : 'bg-emerald-500'}`}></span>
-                                    <span className="text-xs font-semibold uppercase text-slate-600 dark:text-slate-300 tracking-wide">
+                                    <span className="text-xs font-semibold uppercase text-slate-300 tracking-wide">
                                         {pipelineState.status}
                                     </span>
                                 </div>
