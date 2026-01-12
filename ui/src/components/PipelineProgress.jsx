@@ -19,10 +19,10 @@ const PipelineProgress = () => {
 
     const getStatusColor = (status) => {
         switch (status) {
-            case 'complete': return 'bg-green-500 text-white';
-            case 'running': return 'bg-[#FF4500] text-white animate-pulse';
+            case 'complete': return 'bg-emerald-500 text-white shadow-neon-blue';
+            case 'running': return 'bg-brand-orange text-white animate-pulse shadow-neon-orange';
             case 'failed': return 'bg-red-500 text-white';
-            default: return 'bg-slate-700 text-slate-400';
+            default: return 'bg-slate-200 text-slate-500 dark:bg-slate-800 dark:text-slate-400';
         }
     };
 
@@ -39,13 +39,14 @@ const PipelineProgress = () => {
                             key={agent.id}
                             onClick={() => isComplete && setSelectedAgent(agent)}
                             className={`
-                                relative p-4 rounded-lg border-2 transition-all cursor-pointer
-                                ${selectedAgent?.id === agent.id ? 'border-[#FF4500] ring-2 ring-orange-500/50' : 'border-slate-700'}
-                                ${isComplete ? 'hover:border-green-400 hover:bg-slate-800' : ''}
-                                bg-slate-800
+                                relative p-4 rounded-lg border-2 transition-all cursor-pointer overflow-hidden
+                                ${selectedAgent?.id === agent.id
+                                    ? 'border-brand-orange ring-2 ring-orange-500/50 dark:bg-brand-blue/20 bg-orange-50'
+                                    : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50'}
+                                ${isComplete ? 'hover:border-emerald-400 hover:dark:bg-slate-800 hover:bg-emerald-50' : ''}
                             `}
                         >
-                            <div className="flex items-center justify-between mb-2">
+                            <div className="flex items-center justify-between mb-2 z-10 relative">
                                 <span className="text-2xl">{agent.icon}</span>
                                 <div className={`px-2 py-0.5 rounded text-xs font-bold uppercase ${getStatusColor(status)}`}>
                                     {status}
@@ -81,10 +82,10 @@ const PipelineProgress = () => {
                             )}
                         </div>
                     ) : (
-                        <div className="bg-slate-800/50 border border-slate-700 rounded-lg h-96 flex flex-col items-center justify-center text-slate-500 p-8 text-center">
+                        <div className="bg-slate-50 border border-slate-200 dark:bg-slate-800/50 dark:border-slate-700 rounded-lg h-96 flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-8 text-center backdrop-blur-sm">
                             <span className="text-4xl mb-4">🚀</span>
-                            <p className="text-lg">Select a completed agent above to view its output.</p>
-                            <p className="text-sm mt-2 opacity-70">Pipeline execution in progress...</p>
+                            <p className="text-lg font-mono">Select a completed agent above to view its output.</p>
+                            <p className="text-xs mt-2 opacity-70 tracking-widest uppercase">Pipeline execution in progress...</p>
                         </div>
                     )}
                 </div>

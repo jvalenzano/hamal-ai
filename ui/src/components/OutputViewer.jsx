@@ -21,7 +21,7 @@ const OutputViewer = ({ projectName, filename }) => {
     if (error) return <div className="text-red-400 p-4">Error loading file: {error}</div>;
 
     return (
-        <div className="bg-slate-800 p-8 rounded-lg shadow-lg prose prose-invert max-w-none">
+        <div className="bg-white dark:bg-slate-800 p-8 rounded-lg border border-slate-200 dark:border-slate-700 shadow-lg prose dark:prose-invert max-w-none prose-slate dark:prose-blue">
             <ReactMarkdown>{content}</ReactMarkdown>
         </div>
     );

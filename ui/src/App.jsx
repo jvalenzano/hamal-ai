@@ -7,60 +7,25 @@ const HamalApp = () => {
     const { pipelineState, resetPipeline } = usePipeline();
 
     return (
-        <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-orange-500/30">
-            {/* Navigation / Header */}
-            <nav className="bg-slate-900 border-b border-slate-800 sticky top-0 z-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between h-20">
-                        {/* Logo & Brand */}
-                        <div
-                            className="flex items-center space-x-4 cursor-pointer group"
-                            onClick={resetPipeline}
-                        >
-                            <img
-                                src="/logo.png"
-                                alt="Hamal Logo"
-                                className="h-12 w-12 transition-transform transform group-hover:scale-110 drop-shadow-[0_0_10px_rgba(255,69,0,0.5)]"
-                            />
-                            <div>
-                                <h1 className="text-2xl font-bold tracking-wider text-white">
-                                    HAMAL
-                                </h1>
-                                <span className="text-[10px] uppercase tracking-[0.2em] text-[#FF4500]">
-                                    Autonomous Validation
-                                </span>
-                            </div>
-                        </div>
+        <div className="min-h-screen relative text-slate-100 selection:bg-brand-orange/30">
+            <div className="stars"></div>
 
-                        {/* Status Indicator */}
-                        {pipelineState && (
-                            <div className="flex items-center space-x-2 bg-slate-800 px-3 py-1 rounded-full border border-slate-700">
-                                <span className={`w-2 h-2 rounded-full ${pipelineState.status === 'running' ? 'bg-[#FF4500] animate-pulse' : 'bg-green-500'}`}></span>
-                                <span className="text-xs font-mono uppercase text-slate-300">
-                                    {pipelineState.status}
-                                </span>
-                            </div>
-                        )}
-                    </div>
-                </div>
-            </nav>
 
             {/* Main Content */}
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 {!pipelineState ? (
                     <div className="space-y-12 animate-fade-in-up">
                         {/* Branding Hero Section */}
-                        <div className="text-center max-w-3xl mx-auto space-y-6">
-                            <h2 className="text-4xl md:text-5xl font-extrabold text-white">
-                                The <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF4500] to-orange-400">Head of the Ram</span>
+                        <div className="text-center max-w-4xl mx-auto space-y-8 py-8">
+                            <h2 className="text-5xl md:text-7xl font-bold text-slate-900 dark:text-white tracking-tight">
+                                The <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-amber-500 drop-shadow-md dark:drop-shadow-neon-orange">Head of the Ram</span>
                             </h2>
-                            <div className="relative">
-                                <span className="absolute -top-4 -left-4 text-6xl text-slate-800 font-serif opacity-50">"</span>
-                                <p className="text-xl text-slate-300 font-light italic leading-relaxed px-8">
-                                    Hamal (Alpha Arietis) is the brightest star in Aries. Just as this star historically guided navigators,
-                                    this intelligence layer serves as the <strong className="text-white font-normal">brain of the constellation</strong>—guiding ideas from the chaos of conception to the clarity of execution.
+                            <div className="relative bg-white dark:bg-brand-surface p-8 rounded-lg border border-slate-200 dark:border-brand-blue/30 backdrop-blur-sm max-w-2xl mx-auto shadow-sm dark:shadow-none">
+                                <div className="absolute top-0 left-0 w-2 h-full bg-brand-orange/50 rounded-l-lg"></div>
+                                <p className="text-lg text-slate-600 dark:text-blue-100 font-light leading-relaxed tracking-wide">
+                                    "Hamal (Alpha Arietis) is the brightest star in Aries. Just as this star historically guided navigators,
+                                    this intelligence layer serves as the <strong className="text-slate-900 dark:text-white font-medium">brain of the constellation</strong>—guiding ideas from the chaos of conception to the clarity of execution."
                                 </p>
-                                <span className="absolute -bottom-8 -right-4 text-6xl text-slate-800 font-serif opacity-50">"</span>
                             </div>
                         </div>
 

@@ -1,3 +1,5 @@
+![Hamal Hero Banner](ui/public/hero_banner.png)
+
 # Hamal: AI-Powered Validation Framework
 
 **Version:** 0.1.0 (MVP)  
