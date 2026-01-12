@@ -38,15 +38,15 @@ const HamalApp = () => {
                         >
                             {/* Master Geometric Logo */}
                             <div className="relative h-20 w-20 transition-transform transform group-hover:scale-105">
-                                {/* Light Mode: Multiply blend to remove white, show Navy/Amber */}
-                                {/* Dark Mode: Invert colors to make Navy->White/Cyan, Amber->Blueish (or close enough for glowing effect) */}
+                                {/* Light Mode: Normal Transparent PNG */}
+                                {/* Dark Mode: Brightness 0 -> Black, Invert -> White. Pure Flat White Icon. */}
                                 <img
-                                    src="/logo-master.png"
+                                    src="/logo-master-v2.png"
                                     alt="Hamal Logo"
                                     className={`w-full h-full object-contain 
                                         ${darkMode
-                                            ? 'filter invert hue-rotate-180 brightness-125 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] mix-blend-screen'
-                                            : 'mix-blend-multiply drop-shadow-sm'
+                                            ? 'filter brightness-0 invert drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]'
+                                            : 'drop-shadow-sm'
                                         }`}
                                 />
                             </div>
@@ -88,14 +88,19 @@ const HamalApp = () => {
                 {!pipelineState ? (
                     <div className="space-y-16 animate-fade-in-up">
                         {/* Branding Hero Section */}
-                        <div className="text-center max-w-3xl mx-auto space-y-10 py-4">
-                            {/* Consistent Headline Typography */}
-                            <h2 className="text-5xl md:text-6xl font-bold text-slate-900 dark:text-white tracking-tight leading-tight">
-                                The <span className="text-transparent bg-clip-text bg-gradient-to-br from-brand-orange to-amber-500">Head of the Ram</span>
-                            </h2>
+                        <div className="text-center max-w-3xl mx-auto space-y-8 py-4">
+                            {/* Updated Hierarchy: Brand Name as Hero */}
+                            <div className="space-y-4">
+                                <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-slate-900 dark:text-white leading-none">
+                                    HAMAL
+                                </h1>
+                                <p className="text-2xl md:text-3xl font-light text-slate-500 dark:text-slate-400 tracking-wide">
+                                    The <span className="font-normal text-brand-orange">Head of the Ram</span>
+                                </p>
+                            </div>
 
                             {/* Left-Aligned professional quote block */}
-                            <div className="relative bg-white dark:bg-slate-800/50 p-8 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm text-left">
+                            <div className="relative bg-white dark:bg-slate-800/50 p-8 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm text-left backdrop-blur-sm">
                                 <div className="absolute top-8 left-0 w-1 h-16 bg-brand-orange rounded-r-full"></div>
                                 <p className="text-lg text-slate-600 dark:text-slate-300 font-normal leading-relaxed pl-4">
                                     "Hamal (Alpha Arietis) is the brightest star in Aries. Just as this star historically guided navigators,
