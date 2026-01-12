@@ -12,12 +12,7 @@ import logging
 import click
 from datetime import datetime
 
-# Import agents
-sys.path.append(os.path.dirname(__file__))
-from agents.discovery import run_discovery
-from agents.research import run_research
-from agents.validation import run_validation
-from agents.architecture import run_architecture
+# Agent imports moved to individual commands to prevent startup latency
 from agents.utils import set_verbose, FatalError
 
 # Optional: Import FastAPI/Uvicorn only inside serve to keep CLI fast? 
@@ -61,6 +56,13 @@ def run(charter_file, project_name, verbose, skip_on_error):
     if verbose:
         set_verbose(True)
         click.echo("[VERBOSE MODE ENABLED]\n")
+    
+    # Lazy import agents
+    from agents.discovery import run_discovery
+    from agents.research import run_research
+    from agents.validation import run_validation
+    from agents.architecture import run_architecture
+    from agents.summary import main as run_summary
     
     # Extract project name
     if not project_name:
@@ -283,6 +285,8 @@ def discover(charter_file, project_name):
     if not project_name:
         project_name = os.path.basename(charter_file).replace('.txt', '').replace('_charter', '')
     
+    from agents.discovery import run_discovery
+    
     with open(charter_file, 'r') as f:
         charter_text = f.read()
     
@@ -297,6 +301,7 @@ def research(problem_file):
     """Run Research Agent on problem.md"""
     
     click.echo(f"🌐 Running Research Agent...")
+    from agents.research import run_research
     output = run_research(problem_file)
     click.echo(f"✅ Output: {output}")
 
@@ -307,6 +312,7 @@ def validate(project_dir):
     """Run Validation Agent on project directory"""
     
     click.echo(f"📊 Running Validation Agent...")
+    from agents.validation import run_validation
     output = run_validation(project_dir)
     click.echo(f"✅ Output: {output}")
 
@@ -317,6 +323,7 @@ def architect(project_dir):
     """Run Architecture Agent on project directory"""
     
     click.echo(f"🏗️  Running Architecture Agent...")
+    from agents.architecture import run_architecture
     output = run_architecture(project_dir)
     click.echo(f"✅ Output: {output}")
 
@@ -327,6 +334,7 @@ def summary(project_dir):
     """Generate executive summary for project"""
     
     click.echo(f"📄 Generating Executive Summary...")
+    from agents.summary import main as run_summary
     run_summary(project_dir)
     summary_path = os.path.join(project_dir, "summary.html")
     click.echo(f"✅ Summary generated: {summary_path}")
